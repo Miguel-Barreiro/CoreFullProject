@@ -77,3 +77,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 475160bb9a5b44de98a5eb20cb532d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameConfig: {fileID: 11400000, guid: f80168e2b2471a44ea60989ca791b35b, type: 2}
