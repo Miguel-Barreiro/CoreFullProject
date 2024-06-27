@@ -1,4 +1,5 @@
 ﻿using Core.Initialization;
+using Testing_Core.ComponentSystems;
 using Testing_Core.EntitySystems;
 using Testing_Core.Model;
 using Testing_Core.ViewSystems;
@@ -22,6 +23,8 @@ namespace Testing_Core
             BindInstance(GameConfig);
             
             BindInstance(new BasicTestViewSystem());
+            
+            BindInstance(new AliveComponentSystem());
         }
     }
 }

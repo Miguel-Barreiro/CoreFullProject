@@ -6,17 +6,17 @@ namespace Testing_Core.ComponentSystems
 {
     public class AliveComponentSystem : ComponentSystem<IAlive>
     {
-        public override void OnNewComponent(IAlive newComponent)
+        public override void OnNew(IAlive newComponent)
         {
             Debug.Log($" new ALIVE component: {newComponent.ID}");
         }
 
-        public override void OnComponentDestroy(IAlive newComponent)
+        public override void OnDestroy(IAlive newComponent)
         {
             Debug.Log($" ALIVE component destroyed: {newComponent.ID}");
         }
 
-        public override void UpdateComponent(IAlive component, float deltaTime)
+        public override void Update(IAlive component, float deltaTime)
         {
             if (!component.IsAlive)
             {

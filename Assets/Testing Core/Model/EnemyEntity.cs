@@ -28,9 +28,9 @@ namespace Testing_Core.Model
         #region Position
 
         public Vector2 Position { get; }
-        public GameObject Prefab { get; }
+        public GameObject Prefab { get; private set; }
 
-         #endregion
+        #endregion
  
     }
 }
