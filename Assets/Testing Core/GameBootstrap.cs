@@ -2,7 +2,6 @@
 using Testing_Core.ComponentSystems;
 using Testing_Core.EntitySystems;
 using Testing_Core.Model;
-using Testing_Core.ViewSystems;
 using UnityEngine;
 
 namespace Testing_Core
@@ -21,8 +20,6 @@ namespace Testing_Core
             BindInstance(startGameSystem);
             
             BindInstance(GameConfig);
-            
-            BindInstance(new BasicTestViewSystem());
             
             BindInstance(new AliveComponentSystem());
         }
