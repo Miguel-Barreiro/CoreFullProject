@@ -1,4 +1,5 @@
 ﻿using Core.Initialization;
+using Testing_Core.Systems_Test.Events;
 
 namespace Testing_Core
 {
@@ -6,7 +7,7 @@ namespace Testing_Core
     {
         protected override void Instantiate()
         {
-            
+            BindInstance(new EventReactSystemTest());
         }
     }
 }

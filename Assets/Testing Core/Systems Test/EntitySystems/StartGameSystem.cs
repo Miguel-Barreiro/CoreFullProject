@@ -8,7 +8,7 @@ namespace Testing_Core.EntitySystems
     {
         [Inject] private readonly GameModel gameModel = null!;
 
-        public void Start()
+        public void StartSystem()
         {
             gameModel.Start();
         }

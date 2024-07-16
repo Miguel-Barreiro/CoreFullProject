@@ -22,7 +22,8 @@ namespace Testing_Core.Model
 
             StartGameEvent newEvent = EventQueue.Execute<StartGameEvent>();
             newEvent.TestArgument = 666;
-            
+
+            PostStartGameEvent secondEvent = EventQueue.Execute<PostStartGameEvent>();
             
             return;
         }
