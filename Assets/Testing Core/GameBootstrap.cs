@@ -22,6 +22,7 @@ namespace Testing_Core
             BindInstance(GameConfig);
             
             BindInstance(new AliveComponentSystem());
+            BindInstance(new PrioritySystemTest());
         }
     }
 }

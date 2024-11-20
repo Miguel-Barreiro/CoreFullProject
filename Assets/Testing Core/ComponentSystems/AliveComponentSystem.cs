@@ -1,5 +1,6 @@
 ﻿using Core.Model;
 using Core.Model.ModelSystems;
+using Core.Systems;
 using Testing_Core.Components;
 using UnityEngine;
 
@@ -24,5 +25,7 @@ namespace Testing_Core.ComponentSystems
                 component.Destroy();
             }
         }
+
+        public override SystemGroup Group { get; } = CoreSystemGroups.CoreSystemGroup;
     }
 }
