@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e073d4fef44fd0a9d7c9f0ee977bf7, type: 3}
+  m_Name: UI_test_A
+  m_EditorClassIdentifier: 
+  lifetimeType: 0
+  uiPrefab: {fileID: 3549905027824146711, guid: 3b21c8bc72845544aa238ef58eb380be, type: 3}
