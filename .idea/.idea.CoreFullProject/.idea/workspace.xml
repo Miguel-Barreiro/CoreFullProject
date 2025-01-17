@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd9a6987-ecb6-4368-83cf-6cf813aeb878" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoreFullProject.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoreFullProject.dir/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Core" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/ComponentSystems/AliveComponentSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/ComponentSystems/AliveComponentSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/GameBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/GameBootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/ProjectBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/ProjectBootstrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/View.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
@@ -25,6 +21,28 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -115,10 +133,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="28452">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="28452" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -138,6 +156,11 @@
       <workItem from="1721124839130" duration="41395000" />
       <workItem from="1731943547858" duration="357000" />
       <workItem from="1731943916675" duration="14338000" />
+      <workItem from="1732656017732" duration="1266000" />
+      <workItem from="1732799146485" duration="6497000" />
+      <workItem from="1733320490242" duration="8932000" />
+      <workItem from="1735753708990" duration="764000" />
+      <workItem from="1737079449175" duration="10154000" />
     </task>
     <servers />
   </component>
@@ -153,64 +176,6 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Testing Core/Systems Test/Events/EventReactSystemTest.cs</url>
-          <line>10</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Testing Core\Systems Test\Events\EventReactSystemTest.cs" containingFunctionPresentation="Method 'OnEvent'">
-            <startOffsets>
-              <option value="277" />
-            </startOffsets>
-            <endOffsets>
-              <option value="331" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Events/EventListenerSystemsContainer.cs</url>
-          <line>95</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Events\EventListenerSystemsContainer.cs" containingFunctionPresentation="Constructor 'EventListenerSystemCache'">
-            <startOffsets>
-              <option value="3152" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3308" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Utils/Reflection/ReflectionUtils.cs</url>
-          <line>161</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Utils\Reflection\ReflectionUtils.cs" containingFunctionPresentation="Method 'GetMethodExt'">
-            <startOffsets>
-              <option value="6339" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6399" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Utils/Reflection/ReflectionUtils.cs</url>
-          <line>153</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Utils\Reflection\ReflectionUtils.cs" containingFunctionPresentation="Method 'GetMethodExt'">
-            <startOffsets>
-              <option value="5992" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6039" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
