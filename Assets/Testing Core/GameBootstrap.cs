@@ -23,6 +23,7 @@ namespace Testing_Core
             
             BindInstance(new AliveComponentSystem());
             BindInstance(new PrioritySystemTest());
+            BindInstance(new BaseEntitySystemsTest());
         }
     }
 }
