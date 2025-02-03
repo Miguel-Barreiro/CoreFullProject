@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Testing_Core.Systems_Test.Events
 {
-	public class EventReactSystemTest : IEventListener<StartGameEvent>, IEventListener<PostStartGameEvent>
+	public class TestingCore_EventReactSystem : IEventListener<StartGameEvent>, IEventListener<PostStartGameEvent>
 	{
 		public void OnEvent(StartGameEvent onEvent)
 		{

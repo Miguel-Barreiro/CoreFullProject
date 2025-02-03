@@ -1,6 +1,5 @@
-using System.Runtime.CompilerServices;
-using System.Collections.Generic;
 using Core.Model;
+using Core.Systems;
 using FixedPointy;
 using NUnit.Framework;
 using UnityEngine;
@@ -13,6 +12,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
 
         [SerializeField] private StatConfig testStat;
         
+        private SystemsController _systemsController;
         private StatsSystem _statsSystem;
         private EntityA _owner;
         private EntityB _target;
@@ -27,6 +27,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
         [SetUp]
         public void SetUp()
         {
+            _systemsController = new SystemsController();
             _statsSystem = new StatsSystemImplementation();
             _owner = new EntityA();
             _target = new EntityB();
@@ -35,6 +36,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
         [TearDown]
         public void TearDown()
         {
+            _systemsController = null;
             _owner.Destroy();
             _target.Destroy();
             EntitiesContainer.Reset();
