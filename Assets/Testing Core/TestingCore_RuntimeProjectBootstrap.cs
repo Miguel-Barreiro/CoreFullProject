@@ -4,29 +4,29 @@ using Testing_Core.Systems_Test.Events;
 
 namespace Testing_Core
 {
-    public sealed class TestingCoreRuntimeProjectBootstrap  : RuntimeProjectBootstrap
+    public sealed class TestingCore_RuntimeProjectBootstrap  : RuntimeProjectBootstrap
     {
-        private TestingCoreProjectInstaller Installer = null;
+        private TestingCore_ProjectInstaller Installer = null;
 
         public override SystemsInstallerBase GetLogicInstaller()
         {
             if (Installer == null)
             {
-                Installer = new TestingCoreProjectInstaller(Container);
+                Installer = new TestingCore_ProjectInstaller(Container);
             }
 
             return Installer;
         }
     }
 
-    public sealed class TestingCoreProjectInstaller : SystemsInstallerBase
+    public sealed class TestingCore_ProjectInstaller : SystemsInstallerBase
     {
         protected override void InstallSystems()
         {
             BindInstance(new TestingCore_EventReactSystem());
         }
 
-        public TestingCoreProjectInstaller(DiContainer container) : base(container) { }
+        public TestingCore_ProjectInstaller(DiContainer container) : base(container) { }
     }
 
 }

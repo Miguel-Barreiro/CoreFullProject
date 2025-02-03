@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Testing_Core
 {
-    public class TestingCoreGameBootstrap : SceneBootstrap
+    public class TestingCore_GameBootstrap : SceneBootstrap
     {
         [SerializeField]
         private GameConfig GameConfig;

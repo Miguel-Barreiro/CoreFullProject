@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Testing_Core.UI_Test
 {
-	public class TestUIController : MonoBehaviour
+	public class TestUI_Controller : MonoBehaviour
 	{
 		[SerializeField] private UIScreenDefinition uiScreenDefinition;
 

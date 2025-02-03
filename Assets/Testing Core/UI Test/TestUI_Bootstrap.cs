@@ -9,7 +9,7 @@ namespace Testing_Core.UI_Test
 	{
 		[SerializeField] private GameObject screenA_UI;
 		[SerializeField] private UIScreenDefinition screenADefinition;
-		[SerializeField] private TestUIController testUIController;
+		[SerializeField] private TestUI_Controller testUIController;
 
 		private TestUISystems _testUISystems;
 
@@ -29,10 +29,10 @@ namespace Testing_Core.UI_Test
 	{
 		private readonly GameObject screenA_UI;
 		private readonly UIScreenDefinition ScreenADefinition;
-		private readonly TestUIController TestUIController;
+		private readonly TestUI_Controller TestUIController;
 
 		public TestUISystems(GameObject screenAUI, UIScreenDefinition screenADefinition, 
-								TestUIController testUIController, DiContainer container) 
+								TestUI_Controller testUIController, DiContainer container) 
 			: base(container)
 		{
 			screenA_UI = screenAUI;

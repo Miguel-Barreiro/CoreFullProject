@@ -7,15 +7,15 @@ namespace Testing_Core.EntitySystems
 {
 	
 	[EntitySystemProperties(LifetimePriority = SystemPriority.Late, UpdatePriority = SystemPriority.Late)]
-	public sealed class PrioritySystemTest : ComponentSystem<I2DPhysicsEntity>
+	public sealed class PrioritySystemTest : ComponentSystem<IPositionEntity>
 	{
-		public override void OnNew(I2DPhysicsEntity newComponent)
+		public override void OnNew(IPositionEntity newComponent)
 		{
 			Debug.Log($"on NEW physics entity: LATE");
 		}
-		public override void OnDestroy(I2DPhysicsEntity newComponent) {  }
+		public override void OnDestroy(IPositionEntity newComponent) {  }
 
-		public override void Update(I2DPhysicsEntity component, float deltaTime)
+		public override void Update(IPositionEntity component, float deltaTime)
 		{
 			Debug.Log($"on update physics entity: LATE");
 		}
