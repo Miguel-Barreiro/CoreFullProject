@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Core.Editor;
 using Core.Model;
 using Core.Runtime.Editor;
@@ -47,7 +49,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
         public void AddModifier_AdditiveType_CorrectlyModifiesStat()
         {
             // Arrange
-            Fix modifierValue = (Fix)2;
+            Fix modifierValue = 2;
 
             // Act
             StatModId modId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, 
@@ -63,8 +65,8 @@ namespace Testing_Core.Editor.UnitTests.Stats
         public void AddModifier_MultipleModifiersFromSameOwner_AllApply()
         {
             // Arrange
-            Fix modifier1 = (Fix)2;
-            Fix modifier2 = (Fix)3;
+            Fix modifier1 = 2;
+            Fix modifier2 = 3;
 
             // Act
             StatModId modId1 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifier1, StatModifierType.Additive);
@@ -98,8 +100,8 @@ namespace Testing_Core.Editor.UnitTests.Stats
         public void AddModifier_AdditivePostMultiplicative_AppliesAfterMultiplicative()
         {
             // Arrange
-            Fix multiplicative = (Fix)2;    // x2
-            Fix postAdditive = (Fix)3;      // +3 after multiplication
+            Fix multiplicative = 2;    // x2
+            Fix postAdditive = 3;      // +3 after multiplication
 
             // Act
             StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, multiplicative, StatModifierType.Multiplicative);
@@ -117,10 +119,10 @@ namespace Testing_Core.Editor.UnitTests.Stats
         {
             // Arrange
             Fix baseValue = 1;
-            Fix additive = (Fix)2;          // +2
+            Fix additive = 2;          // +2
             Fix percentage = Fix.Ratio(1, 2);   // +50%
-            Fix multiplicative = (Fix)2;     // x2
-            Fix postAdditive = (Fix)1;      // +1
+            Fix multiplicative = 2;     // x2
+            Fix postAdditive = 1;      // +1
 
             //Arrange
             StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
@@ -165,7 +167,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
 
             // Assert
             // Expected calculation: ((1 + 2) * (1 + 0.5)) * 2 = 9
-            Fix expectedValue = (Fix)9;
+            Fix expectedValue = 9;
             Assert.That(finalValue, Is.EqualTo(expectedValue));
         }
 
@@ -212,7 +214,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
         public void GetStatCurrentValue_NoModifiers_MatchesBaseValue()
         {
             // Arrange
-            Fix baseValue = (Fix)5;
+            Fix baseValue = 5;
             StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
 
             // Act
@@ -298,7 +300,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
 
             // Assert
-            Assert.That(currentValue, Is.EqualTo((Fix)testStat.DefaultMinValue)); // Should be clamped 
+            Assert.That(currentValue, Is.EqualTo(testStat.DefaultMinValue)); // Should be clamped 
         }
 
         [Test]
@@ -355,15 +357,15 @@ namespace Testing_Core.Editor.UnitTests.Stats
 
             // Act
             StatsSystem.ChangeDepletedValue(_target.ID, testStat, delta);
-            Fix afterFirstchange = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Fix afterFirsChange = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
             
             StatsSystem.ChangeDepletedValue(_target.ID, testStat, 0);
             Fix afterSecondChange = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
 
             // Assert
-            Assert.That(afterFirstchange, Is.EqualTo(baseValue + delta));
+            Assert.That(afterFirsChange, Is.EqualTo(baseValue + delta));
             
-            Assert.That(afterSecondChange, Is.EqualTo(afterFirstchange));
+            Assert.That(afterSecondChange, Is.EqualTo(afterFirsChange));
         }
 
         [Test]
@@ -445,7 +447,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Fix expectedValue = baseValue * modifierValue;
             
             StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
-            StatModId modId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, 
+            StatModId _ = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, 
                                                         StatModifierType.Multiplicative);
 
             Fix valueBeforeDestroy = StatsSystem.GetStatValue(_target.ID, testStat);
@@ -691,8 +693,200 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Assert.That(valueAfterDeaths, Is.EqualTo(baseValue));
         }
 
-        public class EntityA : BaseEntity { }
-        public class EntityB : BaseEntity { }
+        [Test]
+        [Category("Stats")]
+        [Category("Modifiers")]
+        public void GetModifierValue_ExistingModifier_ReturnsCorrectValue()
+        {
+            // Arrange
+            Fix expectedValue = 5;
+
+            // Act
+            StatModId modId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, expectedValue, StatModifierType.Additive);
+
+            Fix actualValue = StatsSystem.GetModifierValue(modId);
+            // Assert
+            Assert.That(actualValue, Is.EqualTo(expectedValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Modifiers")]
+        public void ChangeModifier_UpdatesValue_RecalculatesStats()
+        {
+            // Arrange
+            Fix initialModValue = 5;
+            Fix newModValue = 10;
+            StatModId modId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, initialModValue, 
+                                                        StatModifierType.Additive);
+            Fix statBeforeChange = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Act
+            StatsSystem.ChangeModifier(modId, newModValue);
+            Fix statAfterChange = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(statBeforeChange, Is.EqualTo(testStat.DefaultBaseValue + initialModValue));
+            Assert.That(StatsSystem.GetModifierValue(modId), Is.EqualTo(newModValue));
+            Assert.That(statAfterChange, Is.EqualTo(statBeforeChange + (newModValue - initialModValue)));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Modifiers")]
+        public void GetModifiersOwnedBy_MultipleModifiers_ReturnsAllModifiers()
+        {
+            // Arrange
+            EntityB target2 = new EntityB();
+            StatModId modId1 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 5,
+                                                            StatModifierType.Additive);
+            StatModId modId2 = StatsSystem.AddModifier(_owner.ID, target2.ID, testStat, 10, 
+                                                            StatModifierType.Multiplicative);
+            StatModId modId3 = StatsSystem.AddModifier(_owner.ID, target2.ID, testStat, 3, 
+                                                            StatModifierType.Additive);
+
+            // Act
+            IEnumerable<StatModId> modifiers = StatsSystem.GetModifiersOwnedBy(_owner.ID);
+
+            // Assert
+            Assert.That(modifiers, Has.Count.EqualTo(3));
+            Assert.That(modifiers, Does.Contain(modId1));
+            Assert.That(modifiers, Does.Contain(modId2));
+            Assert.That(modifiers, Does.Contain(modId3));
+
+            // Cleanup
+            target2.Destroy();
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Modifiers")]
+        public void GetModifiers_BetweenEntities_ReturnsOnlyRelevantModifiers()
+        {
+            // Arrange
+            EntityB target2 = new EntityB();
+            StatModId modId1_1 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 5, 
+                                                            StatModifierType.Additive);
+            StatModId modId1_2 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 5, 
+                                                            StatModifierType.Additive);
+
+            StatModId modId2 = StatsSystem.AddModifier(_owner.ID, target2.ID, testStat, 3, 
+                                                            StatModifierType.Multiplicative);
+
+            // Act
+            IEnumerable<StatModId> modifiersToTarget1 = StatsSystem.GetModifiers(_owner.ID, _target.ID);
+            IEnumerable<StatModId> modifiersToTarget2 = StatsSystem.GetModifiers(_owner.ID, target2.ID);
+
+            // Assert
+            int modifiersToTarget1Count = modifiersToTarget1.Count();
+            int modifiersToTarget2Count = modifiersToTarget2.Count();
+            
+            
+            Assert.That(modifiersToTarget1Count, Is.EqualTo(2));
+            Assert.That(modifiersToTarget1, Does.Contain(modId1_1));
+            Assert.That(modifiersToTarget1, Does.Contain(modId1_2));
+            
+            Assert.That(modifiersToTarget2Count, Is.EqualTo(1));
+            Assert.That(modifiersToTarget2, Does.Contain(modId2));
+
+            // Cleanup
+            target2.Destroy();
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("EntityLifecycle")]
+        public void GetModifierValue_AfterOwnerDestroyed_ModifierNoLongerExists()
+        {
+            // Arrange
+            Fix modValue = 5;
+            StatModId modId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modValue, 
+                                                            StatModifierType.Additive);
+            Fix initialValue = StatsSystem.GetModifierValue(modId);
+
+            // Act
+            _owner.Destroy();
+            ExecuteFrame(1);
+            Fix valueAfterDestroy = StatsSystem.GetModifierValue(modId);
+
+            // Assert
+            Assert.That(initialValue, Is.EqualTo(modValue));
+            Assert.That(valueAfterDestroy, Is.EqualTo((Fix)0));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("EntityLifecycle")]
+        public void GetModifiersOwnedBy_AfterEntityDestroyed_ReturnsEmpty()
+        {
+            // Arrange
+            StatModId modId1 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 5, 
+                                                            StatModifierType.Percentage);
+            StatModId modId2 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 3,
+                                                            StatModifierType.Multiplicative);
+            
+            IEnumerable<StatModId> modifiersBefore = StatsSystem.GetModifiersOwnedBy(_owner.ID);
+            int numberModifiersBefore = modifiersBefore.Count();
+            // Act
+            _owner.Destroy();
+            ExecuteFrame(1);
+            IEnumerable<StatModId> modifiersAfter = StatsSystem.GetModifiersOwnedBy(_owner.ID);
+
+            // Assert
+            Assert.That(numberModifiersBefore, Is.EqualTo(2));
+            Assert.That(modifiersAfter, Is.Empty);
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("EntityLifecycle")]
+        public void GetModifiers_AfterTargetDestroyed_ReturnsEmpty()
+        {
+            // Arrange
+            StatModId modId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 5, 
+                                                            StatModifierType.Percentage);
+            IEnumerable<StatModId> modifiersBefore = StatsSystem.GetModifiers(_owner.ID, _target.ID);
+
+            int numberModifiersBefore = modifiersBefore.Count();
+            // Act
+            _target.Destroy();
+            ExecuteFrame(1);
+            IEnumerable<StatModId> modifiersAfter = StatsSystem.GetModifiers(_owner.ID, _target.ID);
+
+            // Assert
+            Assert.That(numberModifiersBefore, Is.EqualTo(1));
+            Assert.That(modifiersAfter, Is.Empty);
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("EntityLifecycle")]
+        public void ChangeModifier_AfterOwnerDestroyed_HasNoEffect()
+        {
+            // Arrange
+            StatModId modId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 2, 
+                                                        StatModifierType.Additive);
+            StatModId modId2 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 1, 
+                                                        StatModifierType.AdditivePostMultiplicative);
+            StatModId modId3 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 4, 
+                                                        StatModifierType.AdditivePostMultiplicative);
+            StatModId modId4 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, 3, 
+                                                        StatModifierType.Multiplicative);                                                       
+            Fix statBeforeDestroy = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Act
+            _owner.Destroy();
+            ExecuteFrame(1);
+            StatsSystem.ChangeModifier(modId, 0);
+            Fix statAfterChange = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(statAfterChange, Is.EqualTo(testStat.DefaultBaseValue));
+        }
+
+        private class EntityA : BaseEntity { }
+
+        private class EntityB : BaseEntity { }
 
     }
 } 
