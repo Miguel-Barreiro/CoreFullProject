@@ -1031,6 +1031,208 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Assert.That(depletedValueAfter, Is.EqualTo(testStat.DefaultBaseValue));
         }
 
+        [Test]
+        [Category("Stats")]
+        [Category("Performance")]
+        public void Performance_AddingMultipleModifiers_MaintainsConsistentSpeed()
+        {
+            // Arrange
+            const int numModifiers = 1000;
+            List<StatModId> modifiers = new List<StatModId>();
+            List<EntityA> owners = new List<EntityA>();
+            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+            
+            // Act & Assert - Adding modifiers
+            stopwatch.Start();
+            for (int i = 0; i < numModifiers; i++)
+            {
+                EntityA owner = new EntityA();
+                owners.Add(owner);
+                Fix value = (Fix)(i % 10);
+                StatModId modId = StatsSystem.AddModifier(owner.ID, _target.ID, testStat, value, StatModifierType.Additive);
+                modifiers.Add(modId);
+                
+                if (i % 100 == 0)
+                {
+                    ExecuteFrame(1);
+                    Assert.That(stopwatch.ElapsedMilliseconds, Is.LessThan(100), 
+                        "Performance degraded after adding {0} modifiers", i);
+                }
+            }
+            stopwatch.Stop();
+
+            // Cleanup
+            foreach (EntityA owner in owners)
+            {
+                owner.Destroy();
+            }
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Performance")]
+        public void Performance_MultipleEntitiesWithModifiers_HandlesFrameUpdatesEfficiently()
+        {
+            // Arrange
+            const int numEntities = 100;
+            const int modifiersPerEntity = 10;
+            List<EntityA> targets = new List<EntityA>();
+            List<EntityA> owners = new List<EntityA>();
+            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+
+            // Setup entities and modifiers
+            for (int i = 0; i < numEntities; i++)
+            {
+                EntityA target = new EntityA();
+                targets.Add(target);
+                
+                for (int j = 0; j < modifiersPerEntity; j++)
+                {
+                    EntityA owner = new EntityA();
+                    owners.Add(owner);
+                    StatsSystem.AddModifier(owner.ID, target.ID, testStat, (Fix)(j + 1), StatModifierType.Additive);
+                }
+            }
+
+            // Act & Assert - Frame updates
+            const int numFrames = 60; // Simulate 1 second at 60 FPS
+            for (int frame = 0; frame < numFrames; frame++)
+            {
+                stopwatch.Restart();
+                
+                // Simulate some stat changes each frame
+                for (int i = 0; i < numEntities; i++)
+                {
+                    if (i % 10 == frame % 10) // Spread operations across frames
+                    {
+                        StatsSystem.GetStatValue(targets[i].ID, testStat);
+                    }
+                    
+                    if (i % 2 == frame % 2) // Spread operations across frames
+                    {
+                        StatsSystem.GetStatDepletedValue(targets[i].ID, testStat);
+                    }
+
+                    if (i % 5 == frame % 5) // Spread operations across frames
+                    {
+                        Fix depletedValue = StatsSystem.GetStatDepletedValue(targets[i].ID, testStat);
+                        StatsSystem.ChangeDepletedValue(targets[i].ID, testStat, depletedValue - 1);
+                    }
+                }
+                
+                ExecuteFrame(1);
+                stopwatch.Stop();
+                
+                Assert.That(stopwatch.ElapsedMilliseconds, Is.LessThan(16), // 16ms = 60FPS
+                    "Frame {0} took too long to process", frame);
+            }
+
+            // Cleanup
+            foreach (EntityA target in targets) target.Destroy();
+            foreach (EntityA owner in owners) owner.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Performance")]
+        public void Performance_EntityDestructionWithManyModifiers_HandlesCleanupEfficiently()
+        {
+            // Arrange
+            const int numTargets = 50;
+            const int modifiersPerTarget = 20;
+            List<EntityA> targets = new List<EntityA>();
+            List<EntityA> owners = new List<EntityA>();
+            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+
+            // Setup
+            for (int i = 0; i < numTargets; i++)
+            {
+                EntityA target = new EntityA();
+                targets.Add(target);
+                
+                for (int j = 0; j < modifiersPerTarget; j++)
+                {
+                    EntityA owner = new EntityA();
+                    owners.Add(owner);
+                    StatsSystem.AddModifier(owner.ID, target.ID, testStat, (Fix)(j + 1), 
+                        (StatModifierType)(j % 4)); // Use different modifier types
+                }
+            }
+
+            // Act & Assert - Measure cleanup performance
+            stopwatch.Start();
+            
+            for (int i = 0; i < numTargets; i++)
+            {
+                targets[i].Destroy();
+                
+                if (i % 10 == 0)
+                {
+                    ExecuteFrame(1);
+                    Assert.That(stopwatch.ElapsedMilliseconds, Is.LessThan(100), 
+                        "Cleanup performance degraded after destroying {0} entities", i);
+                }
+            }
+            
+            ExecuteFrame(1);
+            stopwatch.Stop();
+
+            // Cleanup remaining entities
+            foreach (EntityA owner in owners)
+                owner.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Performance")]
+        public void Performance_ModifierUpdates_HandlesFrequentChangesEfficiently()
+        {
+            // Arrange
+            const int numModifiers = 100;
+            List<StatModId> modifiers = new List<StatModId>();
+            List<EntityA> owners = new List<EntityA>();
+            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+
+            // Setup
+            for (int i = 0; i < numModifiers; i++)
+            {
+                EntityA owner = new EntityA();
+                owners.Add(owner);
+                StatModId modId = StatsSystem.AddModifier(owner.ID, _target.ID, testStat, (Fix)1, StatModifierType.Additive);
+                modifiers.Add(modId);
+            }
+
+            // Act & Assert - Measure update performance
+            const int numFrames = 60;
+            for (int frame = 0; frame < numFrames; frame++)
+            {
+                stopwatch.Restart();
+                
+                // Update some modifiers each frame
+                for (int i = 0; i < numModifiers; i++)
+                {
+                    if (i % 10 == frame % 10) // Update 10% of modifiers each frame
+                    {
+                        Fix newValue = (Fix)(frame % 5);
+                        StatsSystem.ChangeModifier(modifiers[i], newValue);
+                    }
+                }
+                
+                ExecuteFrame(1);
+                stopwatch.Stop();
+                
+                Assert.That(stopwatch.ElapsedMilliseconds, Is.LessThan(16), 
+                    "Frame {0} took too long to process modifier updates", frame);
+            }
+
+            // Cleanup
+            foreach (EntityA owner in owners) owner.Destroy();
+            ExecuteFrame(1);
+        }
+
         private class EntityA : BaseEntity { }
 
         private class EntityB : BaseEntity { }
