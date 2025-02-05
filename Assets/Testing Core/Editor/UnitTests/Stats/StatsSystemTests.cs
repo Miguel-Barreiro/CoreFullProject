@@ -884,6 +884,153 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Assert.That(statAfterChange, Is.EqualTo(testStat.DefaultBaseValue));
         }
 
+        [Test]
+        [Category("Stats")]
+        [Category("EntityLifecycle")]
+        public void EntityDeath_WithModifiers_AllModifiersAreRemoved()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix modifierValue = 5;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            StatModId modId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, StatModifierType.Additive);
+            Fix valueBeforeDeath = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Act
+            _target.Destroy();
+            ExecuteFrame(1);
+
+            // Assert
+            Fix valueAfterDeath = StatsSystem.GetStatValue(_target.ID, testStat);
+            IEnumerable<StatModId> remainingModifiers = StatsSystem.GetModifiers(_owner.ID, _target.ID);
+            
+            Assert.That(valueBeforeDeath, Is.EqualTo(baseValue + modifierValue));
+            Assert.That(valueAfterDeath, Is.EqualTo(testStat.DefaultBaseValue));
+            Assert.That(remainingModifiers, Is.Empty);
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("EntityLifecycle")]
+        public void EntityDeath_WithMultipleModifiers_AllModifiersAreRemoved()
+        {
+            // Arrange
+            EntityA owner2 = new EntityA();
+            EntityA owner3 = new EntityA();
+            
+            Fix baseValue = 10;
+            Fix mod1Add = 2;
+            Fix mod2Mult = 3;
+            Fix mod3Perc = Fix.Ratio(1, 2); // 50%
+
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            
+            StatModId modId1 = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, mod1Add,
+                                                             StatModifierType.Additive);
+            StatModId modId2 = StatsSystem.AddModifier(owner2.ID, _target.ID, testStat, mod2Mult, 
+                                                            StatModifierType.Multiplicative);
+            StatModId modId3 = StatsSystem.AddModifier(owner3.ID, _target.ID, testStat, mod3Perc,
+                                                             StatModifierType.Percentage);
+
+            Fix valueBeforeDeath = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Act
+            _target.Destroy();
+            ExecuteFrame(1);
+
+            // Assert
+            Fix valueAfterDeath = StatsSystem.GetStatValue(_target.ID, testStat);
+            IEnumerable<StatModId> remainingModifiersOwner1 = StatsSystem.GetModifiers(_owner.ID, _target.ID);
+            IEnumerable<StatModId> remainingModifiersOwner2 = StatsSystem.GetModifiers(owner2.ID, _target.ID);
+            IEnumerable<StatModId> remainingModifiersOwner3 = StatsSystem.GetModifiers(owner3.ID, _target.ID);
+            
+            Fix expectedValue = (baseValue + mod1Add) * ((Fix)1 + mod3Perc) * mod2Mult;
+            Assert.That(valueBeforeDeath, Is.EqualTo(expectedValue));
+            Assert.That(valueAfterDeath, Is.EqualTo(testStat.DefaultBaseValue));
+            Assert.That(remainingModifiersOwner1, Is.Empty);
+            Assert.That(remainingModifiersOwner2, Is.Empty);
+            Assert.That(remainingModifiersOwner3, Is.Empty);
+
+            // Cleanup
+            owner2.Destroy();
+            owner3.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("EntityLifecycle")]
+        public void EntityDeath_WithComplexModifiers_AllEffectsAreRemoved()
+        {
+            // Arrange
+            EntityA owner2 = new EntityA();
+            
+            Fix baseValue = 10;
+            Fix additive = 2;
+            Fix percentage = Fix.Ratio(1, 2); // 50%
+            Fix multiplicative = 2;
+            Fix postAdditive = 3;
+
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            
+            // Add different types of modifiers
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, additive, StatModifierType.Additive);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, percentage, StatModifierType.Percentage);
+            StatsSystem.AddModifier(owner2.ID, _target.ID, testStat, multiplicative, StatModifierType.Multiplicative);
+            StatsSystem.AddModifier(owner2.ID, _target.ID, testStat, postAdditive, StatModifierType.AdditivePostMultiplicative);
+
+            Fix valueBeforeDeath = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Act
+            _target.Destroy();
+            ExecuteFrame(1);
+
+            // Assert
+            Fix valueAfterDeath = StatsSystem.GetStatValue(_target.ID, testStat);
+            Fix expectedBeforeDeath = ((baseValue + additive) * ((Fix)1 + percentage) * multiplicative) + postAdditive;
+            
+            Assert.That(valueBeforeDeath, Is.EqualTo(expectedBeforeDeath));
+            Assert.That(valueAfterDeath, Is.EqualTo(testStat.DefaultBaseValue));
+            Assert.That(StatsSystem.GetModifiers(_owner.ID, _target.ID), Is.Empty);
+            Assert.That(StatsSystem.GetModifiers(owner2.ID, _target.ID), Is.Empty);
+
+            // Cleanup
+            owner2.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("EntityLifecycle")]
+        public void EntityDeath_WithDepletedStats_ResetsToDefault()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix depletion = -4;
+            Fix modifierValue = 5;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, StatModifierType.Additive);
+            StatsSystem.ChangeDepletedValue(_target.ID, testStat, depletion);
+            
+            Fix depletedValueBefore = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Fix totalValueBefore = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Act
+            _target.Destroy();
+            ExecuteFrame(1);
+
+            // Assert
+            Fix depletedValueAfter = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Fix totalValueAfter = StatsSystem.GetStatValue(_target.ID, testStat);
+            
+            Assert.That(totalValueBefore, Is.EqualTo(baseValue + modifierValue));
+            Assert.That(depletedValueBefore, Is.EqualTo(baseValue + modifierValue + depletion));
+            Assert.That(totalValueAfter, Is.EqualTo(testStat.DefaultBaseValue));
+            Assert.That(depletedValueAfter, Is.EqualTo(testStat.DefaultBaseValue));
+        }
+
         private class EntityA : BaseEntity { }
 
         private class EntityB : BaseEntity { }
