@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd9a6987-ecb6-4368-83cf-6cf813aeb878" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,19 +200,51 @@
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/47/1dc194cc/Is.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/85/68f5f781/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/a8/a3803e40/Does.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/be/3cd00e7d/Has.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2c15fe3fa1c24938a5e016199e4208db284200/e7/44735407/Container.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2d509b23e716493bb6ab7d13cc52e0dc21000/29/8c92e1d1/CoreSystemsInstaller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/2f/14584f6b/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/0e/ed91bd9c/Environment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/0f/ae220834/MethodBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/9f/900d2864/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f5b293c74049457cabc28437c5a763925a00/29/4e0db12d/InjectAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f547e88ca61ed0dceca1eabca811c17384657179b4394e074d325274e3fe2f1/System.ComponentModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/senho/Documents/projects/CoreFullProject/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Tests/Editor/SystemsManagerInspector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/TestRunner/EditModeRunner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.State/StateGraphData.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -253,6 +284,11 @@
     ]
   }
 }</component>
+  <component name="RiderProblemsViewState">
+    <hideBySeverity>
+      <option value="300" />
+    </hideBySeverity>
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\CorePackage.exe" />
@@ -288,10 +324,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="6276">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="6276" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -318,7 +354,7 @@
       <workItem from="1737079449175" duration="52140000" />
       <workItem from="1737632557035" duration="57130000" />
       <workItem from="1738105804962" duration="6869000" />
-      <workItem from="1738162778342" duration="45947000" />
+      <workItem from="1738162778342" duration="67372000" />
     </task>
     <servers />
   </component>
@@ -341,19 +377,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs</url>
-          <line>144</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\SystemsController.cs" containingFunctionPresentation="Method 'ProcessDestroyedEntities'">
-            <startOffsets>
-              <option value="4814" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4905" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs</url>
           <line>160</line>
           <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\SystemsController.cs" containingFunctionPresentation="Method 'ProcessDestroyedEntities'">
             <startOffsets>
@@ -366,43 +389,69 @@
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs</url>
-          <line>155</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\SystemsController.cs" containingFunctionPresentation="Method 'ProcessDestroyedEntities'">
-            <startOffsets>
-              <option value="5466" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5597" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs</url>
-          <line>156</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\SystemsController.cs" containingFunctionPresentation="Method 'ProcessDestroyedEntities'">
-            <startOffsets>
-              <option value="5622" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5698" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/Stats/StatsSystem.cs</url>
-          <line>48</line>
+          <line>56</line>
           <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Model\Stats\StatsSystem.cs" containingFunctionPresentation="Method 'OnDestroy'">
             <startOffsets>
-              <option value="1065" />
+              <option value="1362" />
             </startOffsets>
             <endOffsets>
-              <option value="1111" />
+              <option value="1408" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/Stats/StatsSystem.cs</url>
+          <line>51</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Model\Stats\StatsSystem.cs" containingFunctionPresentation="Method 'Reset'">
+            <startOffsets>
+              <option value="1266" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1297" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs</url>
+          <line>159</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\SystemsController.cs" containingFunctionPresentation="Method 'ProcessDestroyedEntities'">
+            <startOffsets>
+              <option value="5827" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5857" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/0f/ae220834/MethodBase.cs</url>
+          <line>105</line>
+          <properties documentPath="C:\Users\senho\AppData\Roaming\JetBrains\Rider2024.1\resharper-host\DecompilerCache\decompiler\c0b7b90d34a54066a7234dad6925511646ac00\0f\ae220834\MethodBase.cs" containingFunctionPresentation="Method 'Invoke'">
+            <startOffsets>
+              <option value="3302" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3395" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs</url>
+          <line>166</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\SystemsController.cs" containingFunctionPresentation="Method 'ProcessDestroyedEntities'">
+            <startOffsets>
+              <option value="6101" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6102" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="80" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
