@@ -723,11 +723,12 @@ namespace Testing_Core.Editor.UnitTests.Stats
 
             // Act
             StatsSystem.ChangeModifier(modId, newModValue);
+            Fix modifierValue = StatsSystem.GetModifierValue(modId);
             Fix statAfterChange = StatsSystem.GetStatValue(_target.ID, testStat);
 
             // Assert
             Assert.That(statBeforeChange, Is.EqualTo(testStat.DefaultBaseValue + initialModValue));
-            Assert.That(StatsSystem.GetModifierValue(modId), Is.EqualTo(newModValue));
+            Assert.That(modifierValue, Is.EqualTo(newModValue));
             Assert.That(statAfterChange, Is.EqualTo(statBeforeChange + (newModValue - initialModValue)));
         }
 
@@ -1038,7 +1039,6 @@ namespace Testing_Core.Editor.UnitTests.Stats
         {
             // Arrange
             const int numModifiers = 1000;
-            List<StatModId> modifiers = new List<StatModId>();
             List<EntityA> owners = new List<EntityA>();
             System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
             
@@ -1048,9 +1048,8 @@ namespace Testing_Core.Editor.UnitTests.Stats
             {
                 EntityA owner = new EntityA();
                 owners.Add(owner);
-                Fix value = (Fix)(i % 10);
+                Fix value = (i % 10);
                 StatModId modId = StatsSystem.AddModifier(owner.ID, _target.ID, testStat, value, StatModifierType.Additive);
-                modifiers.Add(modId);
                 
                 if (i % 100 == 0)
                 {
@@ -1125,7 +1124,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
                 stopwatch.Stop();
                 
                 Assert.That(stopwatch.ElapsedMilliseconds, Is.LessThan(16), // 16ms = 60FPS
-                    "Frame {0} took too long to process", frame);
+                    $"Frame {frame} took too long to process");
             }
 
             // Cleanup
@@ -1231,6 +1230,160 @@ namespace Testing_Core.Editor.UnitTests.Stats
             // Cleanup
             foreach (EntityA owner in owners) owner.Destroy();
             ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void SetBaseValue_WithoutResetDepletedValue_MaintainsDepletedProportion()
+        {
+            // Arrange
+            Fix initialBase = 10;
+            Fix deltaDepleted = -4;
+            Fix newBase = 20;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, initialBase);
+
+            StatsSystem.ChangeDepletedValue(_target.ID, testStat, deltaDepleted);
+            Fix initialDepletedValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+
+            // Act
+            StatsSystem.SetBaseValue(_target.ID, testStat, newBase, false);
+
+            // Assert
+            Fix finalDepletedValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Fix finalTotalValue = StatsSystem.GetStatValue(_target.ID, testStat);
+            
+            Assert.That(finalTotalValue, Is.EqualTo(newBase));
+            Assert.That(finalDepletedValue, Is.EqualTo(newBase + deltaDepleted ));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void SetBaseValue_WithResetDepletedValue_ResetsToFull()
+        {
+            // Arrange
+            Fix initialBase = 10;
+            Fix depletion = -4;
+            Fix newBase = 20;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, initialBase);
+            StatsSystem.ChangeDepletedValue(_target.ID, testStat, depletion);
+
+            // Act
+            StatsSystem.SetBaseValue(_target.ID, testStat, newBase, true);
+
+            // Assert
+            Fix finalDepletedValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Fix finalTotalValue = StatsSystem.GetStatValue(_target.ID, testStat);
+            
+            Assert.That(finalTotalValue, Is.EqualTo(newBase));
+            Assert.That(finalDepletedValue, Is.EqualTo(newBase));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void SetBaseValue_WithModifiers_UpdatesAbsolutely()
+        {
+            // Arrange
+            Fix initialBase = 10;
+            Fix modifierValue = 5;
+
+            Fix depletion = -6;
+            Fix newBase = 20;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, initialBase);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, StatModifierType.Additive);
+            StatsSystem.ChangeDepletedValue(_target.ID, testStat, depletion); 
+            // Depleted value should be (10 + 5) - 6 = 9
+
+            // Act
+            StatsSystem.SetBaseValue(_target.ID, testStat, newBase);
+            // Depleted value should be (20 + 5) - 6 = 19
+
+            // Assert
+            Fix finalTotalValue = StatsSystem.GetStatValue(_target.ID, testStat);
+            Fix finalDepletedValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Fix expectedFinalStatValue = newBase + modifierValue;
+            
+            Assert.That(finalTotalValue, Is.EqualTo(expectedFinalStatValue));
+            Assert.That(finalDepletedValue, Is.EqualTo(expectedFinalStatValue + depletion));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void SetDepletedValue_WithinValidRange_SetsCorrectly()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix depletedValue = 4;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+
+            // Act
+            StatsSystem.SetDepletedValue(_target.ID, testStat, depletedValue);
+
+            // Assert
+            Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Assert.That(currentValue, Is.EqualTo(depletedValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void SetDepletedValue_AboveMaxValue_ClampsToMax()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix invalidDepletedValue = 15;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+
+            // Act
+            StatsSystem.SetDepletedValue(_target.ID, testStat, invalidDepletedValue);
+
+            // Assert
+            Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Assert.That(currentValue, Is.EqualTo(baseValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void SetDepletedValue_BelowMinValue_ClampsToMin()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix invalidDepletedValue = -5;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+
+            // Act
+            StatsSystem.SetDepletedValue(_target.ID, testStat, invalidDepletedValue);
+
+            // Assert
+            Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Assert.That(currentValue, Is.EqualTo(testStat.DefaultMinValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void SetDepletedValue_WithModifiers_HandlesCorrectly()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix modifierValue = 5;
+            Fix depletedValue = 7;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, StatModifierType.Additive);
+
+            // Act
+            StatsSystem.SetDepletedValue(_target.ID, testStat, depletedValue);
+
+            // Assert
+            Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Fix totalValue = StatsSystem.GetStatValue(_target.ID, testStat);
+            
+            Assert.That(currentValue, Is.EqualTo(depletedValue));
+            Assert.That(totalValue, Is.EqualTo(baseValue + modifierValue));
         }
 
         private class EntityA : BaseEntity { }

@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dd9a6987-ecb6-4368-83cf-6cf813aeb878" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/testing core.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/testing core.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,10 +325,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10092">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="10092" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -355,6 +356,7 @@
       <workItem from="1737632557035" duration="57130000" />
       <workItem from="1738105804962" duration="6869000" />
       <workItem from="1738162778342" duration="67372000" />
+      <workItem from="1739189865935" duration="2268000" />
     </task>
     <servers />
   </component>
@@ -452,6 +454,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Testing Core/Model/GameModel.cs</url>
+          <line>22</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Testing Core\Model\GameModel.cs" containingFunctionPresentation="Method 'Start'">
+            <startOffsets>
+              <option value="753" />
+            </startOffsets>
+            <endOffsets>
+              <option value="816" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
