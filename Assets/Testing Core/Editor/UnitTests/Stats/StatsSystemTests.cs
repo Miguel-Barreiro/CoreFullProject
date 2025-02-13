@@ -1386,6 +1386,88 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Assert.That(totalValue, Is.EqualTo(baseValue + modifierValue));
         }
 
+        [Test]
+        [Category("Stats")]
+        public void ResetDepletedValueToMax_ResetsToCurrentMaxValue()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix modifierValue = 5;
+            Fix depletion = 7;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, StatModifierType.Additive);
+            StatsSystem.ChangeDepletedValue(_target.ID, testStat, -depletion);
+
+            // Act
+            StatsSystem.ResetDepletedValueToMax(_target.ID, testStat);
+
+            // Assert
+            Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Fix totalValue = StatsSystem.GetStatValue(_target.ID, testStat);
+            
+            Assert.That(currentValue, Is.EqualTo(totalValue));
+            Assert.That(currentValue, Is.EqualTo(baseValue + modifierValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void ResetDepletedValueToMin_ResetsToMinValue()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix modifierValue = 5;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, StatModifierType.Additive);
+
+            // Act
+            StatsSystem.ResetDepletedValueToMin(_target.ID, testStat);
+
+            // Assert
+            Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Fix totalValue = StatsSystem.GetStatValue(_target.ID, testStat);
+            
+            Assert.That(currentValue, Is.EqualTo(testStat.DefaultMinValue));
+            Assert.That(totalValue, Is.EqualTo(baseValue + modifierValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void ResetDepletedValueToMax_WithNoModifiers_ResetsToBaseValue()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix depletion = -4;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            StatsSystem.ChangeDepletedValue(_target.ID, testStat, depletion);
+
+            // Act
+            StatsSystem.ResetDepletedValueToMax(_target.ID, testStat);
+
+            // Assert
+            Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Assert.That(currentValue, Is.EqualTo(baseValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void ResetDepletedValueToMin_WithNoModifiers_ResetsToMinValue()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+
+            // Act
+            StatsSystem.ResetDepletedValueToMin(_target.ID, testStat);
+
+            // Assert
+            Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+            Assert.That(currentValue, Is.EqualTo(testStat.DefaultMinValue));
+        }
+
         private class EntityA : BaseEntity { }
 
         private class EntityB : BaseEntity { }
