@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/EasyWorkspace/View/USS/Panel.uss?fileID=7433441132597879392&amp;guid=c26ff3d43f09b40459aaa5fa61ff0d28&amp;type=3#Panel" />
+    <Style src="project://database/Assets/EasyWorkspace/View/USS/Toolbar.uss?fileID=7433441132597879392&amp;guid=9fe8b9eaaae2c4990836d1e04bd4fca7&amp;type=3#Toolbar" />
+    <Style src="project://database/Assets/EasyWorkspace/View/USS/Asset.uss?fileID=7433441132597879392&amp;guid=add7db0b691df4afd9a5fc90c468ea5f&amp;type=3#Asset" />
+    <Style src="project://database/Assets/EasyWorkspace/View/USS/Title.uss?fileID=7433441132597879392&amp;guid=5979941d621274c79bd97d8419604ab3&amp;type=3#Title" />
+    <Style src="project://database/Assets/EasyWorkspace/View/USS/AssetLine.uss?fileID=7433441132597879392&amp;guid=8c901f12551b7465aad14d7b13bdde18&amp;type=3#AssetLine" />
+    <ui:VisualElement name="Panel" class="panel-default" style="left: 0; top: 0; position: absolute; width: 180px; height: 40px; flex-direction: row; align-items: center;">
+        <ui:VisualElement name="Toolbar" class="toolbar-default" style="width: 32px; height: auto; position: absolute; left: 0; top: 0; right: 0; bottom: 0; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;" />
+        <ui:VisualElement name="AssetIcon" picking-mode="Ignore" style="width: 22px; height: 22px; flex-shrink: 0; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; left: 5px; border-left-color: rgba(255, 255, 255, 0.43); border-right-color: rgba(255, 255, 255, 0.43); border-top-color: rgba(255, 255, 255, 0.43); border-bottom-color: rgba(255, 255, 255, 0.43); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+        <EasyWorkspace.EWAssetContainer name="Asset" class="asset-default" style="top: 4px; position: absolute; left: 37px; right: 4px; bottom: 4px; flex-direction: row; align-items: center;">
+            <ui:Label name="Title" text="Title" class="title-default" style="flex-grow: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; flex-shrink: 0; position: absolute; left: 5px; top: 0; right: 2px; bottom: 0; width: auto; height: auto; -unity-text-align: middle-left;" />
+        </EasyWorkspace.EWAssetContainer>
+    </ui:VisualElement>
+</ui:UXML>

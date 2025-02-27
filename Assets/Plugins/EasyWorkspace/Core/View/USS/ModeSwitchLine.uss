@@ -1,0 +1,9 @@
+#ModeSwitch #Indicator {
+    left: 2px;
+}
+
+#ModeSwitch #IconLine {
+}
+
+#ModeSwitch #IconGrid {
+}

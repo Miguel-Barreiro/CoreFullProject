@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/EasyWorkspace/View/USS/InitializationScreen.uss?fileID=7433441132597879392&amp;guid=af4e5d27af4844ad7b869e1ce39fe014&amp;type=3#InitializationScreen" />
+    <EasyWorkspace.EWInitializationScreen style="background-color: rgb(38, 38, 38); flex-grow: 1; align-items: center; justify-content: center; flex-direction: row;">
+        <ui:Label tabindex="-1" text="Workspace initialization" display-tooltip-when-elided="true" style="position: absolute; bottom: 50%; margin-bottom: 30px; font-size: 22px;" />
+        <ui:Button text="Create" name="button-create-workspace" focusable="false" class="button" />
+        <ui:Button text="Open" name="button-open-workspace" focusable="false" class="button" />
+    </EasyWorkspace.EWInitializationScreen>
+</ui:UXML>

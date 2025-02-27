@@ -11,27 +11,24 @@ namespace Testing_Core.UI_Test
 		[SerializeField] private UIScreenDefinition screenADefinition;
 		[SerializeField] private TestUI_Controller testUIController;
 
-		private TestUISystems _testUISystems;
-
-		private void Awake()
-		{
-			_testUISystems = new TestUISystems(screenA_UI, screenADefinition, testUIController, Container);
-		}
-
+		private TestUISystemsInstaller _testUISystemsInstaller;
+		
 		public override SystemsInstallerBase GetLogicInstaller()
 		{
-			return _testUISystems;
+			if(_testUISystemsInstaller == null)
+				_testUISystemsInstaller = new TestUISystemsInstaller(screenA_UI, screenADefinition, testUIController, Container);
+			return _testUISystemsInstaller;
 		}
 	}
 
 
-	public sealed class TestUISystems : SystemsInstallerBase
+	public sealed class TestUISystemsInstaller : SystemsInstallerBase
 	{
 		private readonly GameObject screenA_UI;
 		private readonly UIScreenDefinition ScreenADefinition;
 		private readonly TestUI_Controller TestUIController;
 
-		public TestUISystems(GameObject screenAUI, UIScreenDefinition screenADefinition, 
+		public TestUISystemsInstaller(GameObject screenAUI, UIScreenDefinition screenADefinition, 
 								TestUI_Controller testUIController, DiContainer container) 
 			: base(container)
 		{

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb4ead01ea748278f8bc0448402d6d3, type: 3}
+  m_Name: Container
+  m_EditorClassIdentifier: 
+  _root: {fileID: 102900000, guid: b39f129b63f9b4b28beef7d604caf256, type: 3}
+  _workspaceUXML: {fileID: 9197481963319205126, guid: daabba36d74134627b6ce45bcb3d9ac4, type: 3}
+  _initializationScreenUXML: {fileID: 9197481963319205126, guid: 15b09c12758594c4d8e4e720f43df93f, type: 3}
+  _workspaceTabUXML: {fileID: 9197481963319205126, guid: c594c558bd3d541a6a61f57dbdc68af0, type: 3}
+  _customUXML: {fileID: 9197481963319205126, guid: 22a73c6b1545a4f2c93502508aa76793, type: 3}
+  _folderUXML: {fileID: 9197481963319205126, guid: 9740261ff3c8d4c78b69f60edc1dd1e7, type: 3}
+  _folderAssetContainerUXML: {fileID: 9197481963319205126, guid: 6d8fa4a4bec9b43a6b10afabe11c48b0, type: 3}
+  _folderAssetContainerLineUXML: {fileID: 9197481963319205126, guid: ec0db4ae84c5d476bbcc5ba49918d524, type: 3}
+  _settingUXML: {fileID: 9197481963319205126, guid: 1321c0b17fd074607aa7004b55e3c9da, type: 3}
+  _assetUXML:
+  - {fileID: 9197481963319205126, guid: 2400c5f99d1ac4e01b56f88d3cd42349, type: 3}
+  - {fileID: 9197481963319205126, guid: 780256e8fb00d4f71b1c775a1e782c0b, type: 3}
+  _assetStyleNames:
+  - Default
+  - Line
+  _folderCollapse: {fileID: 7433441132597879392, guid: 911d061aa27fe4581a086181dba5f30d, type: 3}
+  _collapseButton: {fileID: 7433441132597879392, guid: 312e42a886ed242d78baa0ee8e503219, type: 3}
+  _folderModeSwitchLine: {fileID: 7433441132597879392, guid: 223f8a034a394469a9d6674d535218cd, type: 3}
+  _folderModeSwitchGrid: {fileID: 7433441132597879392, guid: 749f34aa88d7b49c79bf2a0bc7e51898, type: 3}
+  _fileColorContainer: {fileID: 11400000, guid: 999e524186d0448d2809ea378143bce5, type: 2}

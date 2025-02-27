@@ -1,0 +1,7 @@
+.asset-hover {
+    scale: 1.05 1.05;
+}
+
+.asset-pressed {
+    scale: 1 1;
+}

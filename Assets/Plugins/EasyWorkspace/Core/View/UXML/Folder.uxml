@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Panel.uss?fileID=7433441132597879392&amp;guid=c26ff3d43f09b40459aaa5fa61ff0d28&amp;type=3#Panel" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Toolbar.uss?fileID=7433441132597879392&amp;guid=9fe8b9eaaae2c4990836d1e04bd4fca7&amp;type=3#Toolbar" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Title.uss?fileID=7433441132597879392&amp;guid=5979941d621274c79bd97d8419604ab3&amp;type=3#Title" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/FileDefault.uss?fileID=7433441132597879392&amp;guid=70ee1f046cfe7460894e339c4f47e267&amp;type=3#FileDefault" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/DropIndicator.uss?fileID=7433441132597879392&amp;guid=b3e51963d8ef64ba88940e40485ba91c&amp;type=3#DropIndicator" />
+    <ui:VisualElement name="ResizablePanel" picking-mode="Ignore" style="flex-grow: 1; justify-content: center; align-items: center; position: absolute; width: 200px; height: 200px; left: 0; top: 0;">
+        <ui:VisualElement name="Panel" class="panel-default" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; flex-grow: 1;">
+            <ui:VisualElement name="Toolbar" class="toolbar-default" style="height: 45px;">
+                <ui:Label text="Title" name="Title" class="title-default" style="flex-shrink: 1; padding-right: 25px; padding-left: 25px; -unity-text-align: middle-center;" />
+                <ui:VisualElement name="ToolbarLineContainer" style="position: absolute; flex-direction: row; justify-content: space-between; width: 100%; align-items: center; bottom: 2px;">
+                    <uie:ToolbarSearchField name="Search" style="min-width: 20px; max-width: 200px; flex-shrink: 1; flex-grow: 1; width: 100%; min-height: 16px;" />
+                    <ui:VisualElement name="ModeSwitch" style="width: 32px; background-color: rgb(42, 42, 42); height: 16px; flex-shrink: 0; margin-right: 4px; flex-direction: row; align-items: center; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; overflow: hidden;">
+                        <ui:VisualElement name="Indicator" style="flex-grow: 1; position: absolute; width: 12px; height: 12px; background-color: rgb(115, 115, 115); transition-duration: 0.2s; border-top-left-radius: 2.25px; border-top-right-radius: 2.25px; border-bottom-right-radius: 2.25px; border-bottom-left-radius: 2.25px;" />
+                        <ui:VisualElement name="IconLine" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/EasyWorkspace/Core/Icons/EW_List.png?fileID=2800000&amp;guid=033d1a54f6b374540b576ee32dc0fa5b&amp;type=3#EW_List&apos;); position: absolute; width: 12px; height: 12px; left: 2px; transition-duration: 0.2s; -unity-background-scale-mode: scale-to-fit; -unity-slice-left: 1; -unity-slice-top: 1; -unity-slice-right: 1; -unity-slice-bottom: 1;" />
+                        <ui:VisualElement name="IconGrid" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/EasyWorkspace/Core/Icons/EW_Grid.png?fileID=2800000&amp;guid=707ff4f8331814654b6002f85451c2a5&amp;type=3#EW_Grid&apos;); position: absolute; width: 12px; height: 12px; right: 2px; transition-duration: 0.2s; -unity-slice-left: 1; -unity-slice-top: 1; -unity-slice-right: 1; -unity-slice-bottom: 1; -unity-background-scale-mode: scale-to-fit;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Label tabindex="-1" text="Info" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CollapsedInfo" picking-mode="Ignore" style="position: absolute; top: 25px; left: 0; right: 0; bottom: 5px; -unity-text-align: middle-center;" />
+                <EasyWorkspace.EWCollapseButton name="Collapse" style="position: absolute; top: 2.5px; right: 5px; background-image: url(&apos;project://database/Assets/EasyWorkspace/Core/Icons/EW_Arrow.png?fileID=2800000&amp;guid=165a9c45ee8874ddfacd8baea927a895&amp;type=3#EW_Arrow&apos;);" />
+            </ui:VisualElement>
+            <ui:ScrollView nested-interaction-kind="StopScrolling" horizontal-scroller-visibility="Hidden" name="ScrollView" style="flex-grow: 1;" />
+            <ui:VisualElement name="DropIndicator" picking-mode="Ignore" style="position: absolute; left: 5px; top: 50px; right: 5px; bottom: 5px;">
+                <ui:Label name="Title" picking-mode="Ignore" text="Add files" />
+                <ui:Label text="Drop files to add" name="Text" picking-mode="Ignore" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <EasyWorkspace.EWResizableElement name="ResizableElement" picking-mode="Ignore" style="width: 100%; height: 100%;" />
+    </ui:VisualElement>
+</ui:UXML>

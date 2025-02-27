@@ -1,0 +1,21 @@
+EWCollapseButton {
+    transition-duration: 0.2s;
+    width: 20px;
+    height: 20px;
+    rotate: 0deg;
+    -unity-background-image-tint-color: rgb(204, 204, 204);
+    -unity-slice-left: 6;
+    -unity-slice-right: 6;
+    -unity-slice-top: 6;
+    -unity-slice-bottom: 6;
+    transform-origin: center 55%;
+}
+
+EWCollapseButton.collapsed {
+    rotate: 180deg;
+}
+
+EWCollapseButton:hover {
+    scale: 1.2 1.2;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}

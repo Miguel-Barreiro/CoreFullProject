@@ -1,0 +1,20 @@
+#DropIndicator {
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(64, 64, 64, 0.95);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#DropIndicator #Title {
+    -unity-text-align: middle-center;
+    font-size: 24px;
+    -unity-font-style: bold;
+}
+
+#DropIndicator #Text {
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}

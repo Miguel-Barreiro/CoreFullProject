@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="AssetContainerLine" src="project://database/Assets/EasyWorkspace/Core/View/UXML/AssetContainerLine.uxml?fileID=9197481963319205126&amp;guid=a4454aaf29e4d467c822af6b1f8d7ad3&amp;type=3#AssetContainerLine" />
+    <Style src="project://database/Assets/EasyWorkspace/View/USS/Panel.uss?fileID=7433441132597879392&amp;guid=c26ff3d43f09b40459aaa5fa61ff0d28&amp;type=3#Panel" />
+    <Style src="project://database/Assets/EasyWorkspace/View/USS/Asset.uss?fileID=7433441132597879392&amp;guid=add7db0b691df4afd9a5fc90c468ea5f&amp;type=3#Asset" />
+    <Style src="project://database/Assets/EasyWorkspace/View/USS/Title.uss?fileID=7433441132597879392&amp;guid=5979941d621274c79bd97d8419604ab3&amp;type=3#Title" />
+    <ui:Instance template="AssetContainerLine" name="AssetContainerLine" style="margin-top: 1px; margin-right: 2px; margin-bottom: 1px; margin-left: 2px; justify-content: center; align-items: center;" />
+</ui:UXML>

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Panel.uss?fileID=7433441132597879392&amp;guid=c26ff3d43f09b40459aaa5fa61ff0d28&amp;type=3#Panel" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Toolbar.uss?fileID=7433441132597879392&amp;guid=9fe8b9eaaae2c4990836d1e04bd4fca7&amp;type=3#Toolbar" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Asset.uss?fileID=7433441132597879392&amp;guid=add7db0b691df4afd9a5fc90c468ea5f&amp;type=3#Asset" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Title.uss?fileID=7433441132597879392&amp;guid=5979941d621274c79bd97d8419604ab3&amp;type=3#Title" />
+    <ui:VisualElement name="Panel" class="panel-default" style="left: 0; top: 0; position: absolute; width: 90px; height: 115px;">
+        <ui:VisualElement name="Toolbar" class="toolbar-default">
+            <ui:Label name="Title" text="Title" class="title-default" />
+        </ui:VisualElement>
+        <EasyWorkspace.EWAssetContainer name="Asset" class="asset-default" style="top: 8px; width: 70px; height: 70px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,45 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Settings.uss?fileID=7433441132597879392&amp;guid=f117a0c9ae5514e8d8084fb22b53befa&amp;type=3#Settings" />
+    <EasyWorkspace.EWSettingsView style="flex-grow: 1;">
+        <ui:Label text="Settings" name="Title" style="-unity-font-style: bold; font-size: 16px; -unity-text-align: middle-left; position: absolute; top: 0; left: 10px; right: 0; height: 25px;" />
+        <ui:VisualElement name="Line" style="position: absolute; left: 0; right: 0; top: 25px; height: 1px; background-color: rgb(89, 89, 89);" />
+        <ui:Button text="X" name="Close" focusable="false" style="width: 20px; height: 20px; position: absolute; right: 5px; top: 2.5px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+        <ui:ScrollView mode="VerticalAndHorizontal" style="left: 10px; top: 35px; right: 10px; bottom: 10px; position: absolute;">
+            <ui:VisualElement name="Content" style="flex-grow: 1; flex-direction: row;">
+                <ui:VisualElement name="WorkspacesColumn" class="column" style="width: 200px;">
+                    <ui:Label text="Workspaces" class="title" />
+                    <ui:Toggle name="WorkspacesAll" />
+                    <ui:ListView name="List" show-border="true" selection-type="Multiple" style="width: 100%;" />
+                    <ui:VisualElement name="Buttons" class="buttonsLine">
+                        <ui:Button text="Import" name="Import" focusable="false" class="button" />
+                        <ui:Button text="Export (3)" name="Export" focusable="false" class="button" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Buttons" class="buttonsLine">
+                        <ui:Button text="Delete (3)" name="Delete" focusable="false" class="button" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="SettingsColumn" class="column" style="width: 150px;">
+                    <ui:Label text="Control" class="title" />
+                    <ui:VisualElement name="AssetActions" class="buttonsLine" style="flex-direction: column;">
+                        <uie:EnumField label="LMB" type="EasyWorkspace.EWAssetActionType, Assembly-CSharp-Editor" name="AssetActionLMB" focusable="false" style="flex-grow: 1; flex-direction: column;" />
+                        <uie:EnumField label="RMB (LMB + Alt/Option)" type="EasyWorkspace.EWAssetActionType, Assembly-CSharp-Editor" name="AssetActionRMB" focusable="false" style="flex-grow: 1; flex-direction: column;" />
+                        <uie:EnumField label="MMB (LMB + Shift)" type="EasyWorkspace.EWAssetActionType, Assembly-CSharp-Editor" name="AssetActionMMB" focusable="false" style="flex-grow: 1; flex-direction: column;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Workspace" class="buttonsLine" style="flex-direction: column; margin-top: 20px;">
+                        <ui:Toggle label="Snapping" name="Snapping" />
+                        <ui:Toggle label="Zoom scrolling" name="ZoomScrolling" />
+                        <ui:Toggle label="Zoom fit" name="ZoomFit" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="BackupColumn" class="column" style="width: 150px;">
+                    <ui:Label text="Backup" class="title" />
+                    <ui:VisualElement name="Backup" class="buttonsLine" style="flex-direction: row;">
+                        <ui:Button text="Create" name="Backup" focusable="false" class="button" />
+                        <ui:Button text="Restore" name="Restore" focusable="false" class="button" />
+                    </ui:VisualElement>
+                    <ui:Label text="Last Backup:&#10;09.09 2:20" name="LastBackupTime" style="left: 3px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </EasyWorkspace.EWSettingsView>
+</ui:UXML>

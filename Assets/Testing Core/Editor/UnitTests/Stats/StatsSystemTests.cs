@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core.Editor;
 using Core.Model;
-using Core.Runtime.Editor;
+using Core.Model.Stats;
 using FixedPointy;
 using NUnit.Framework;
 using UnityEngine;

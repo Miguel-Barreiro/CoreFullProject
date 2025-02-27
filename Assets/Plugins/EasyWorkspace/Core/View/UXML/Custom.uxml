@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Panel.uss?fileID=7433441132597879392&amp;guid=c26ff3d43f09b40459aaa5fa61ff0d28&amp;type=3#Panel" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Toolbar.uss?fileID=7433441132597879392&amp;guid=9fe8b9eaaae2c4990836d1e04bd4fca7&amp;type=3#Toolbar" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/Title.uss?fileID=7433441132597879392&amp;guid=5979941d621274c79bd97d8419604ab3&amp;type=3#Title" />
+    <Style src="project://database/Assets/EasyWorkspace/Core/View/USS/FileDefault.uss?fileID=7433441132597879392&amp;guid=70ee1f046cfe7460894e339c4f47e267&amp;type=3#FileDefault" />
+    <ui:VisualElement name="ResizablePanel" picking-mode="Ignore" style="position: absolute; justify-content: center; align-items: center; left: 0; top: 0; right: 0; width: 100%; height: 100%; flex-grow: 1;">
+        <ui:VisualElement name="Panel" class="panel-default" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+            <ui:VisualElement name="Toolbar" class="toolbar-default">
+                <ui:Label text="Title" name="Title" class="title-default" />
+                <EasyWorkspace.EWCollapseButton name="Collapse" style="position: absolute; top: 2.5px; right: 5px; background-image: url(&apos;project://database/Assets/EasyWorkspace/Core/Icons/EW_Arrow.png?fileID=2800000&amp;guid=165a9c45ee8874ddfacd8baea927a895&amp;type=3#EW_Arrow&apos;);" />
+            </ui:VisualElement>
+            <ui:IMGUIContainer style="flex-grow: 1; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; overflow: hidden;" />
+            <ui:Label tabindex="-1" text="Info" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CollapsedInfo" picking-mode="Ignore" style="position: absolute; top: 24px; left: 0; right: 0; bottom: 0; -unity-text-align: upper-center; background-color: rgb(77, 77, 77); padding-bottom: 5px; padding-top: 1px; padding-right: 10px; padding-left: 10px; overflow: hidden; text-overflow: ellipsis; max-height: 25px;" />
+        </ui:VisualElement>
+        <EasyWorkspace.EWResizableElement name="ResizableElement" picking-mode="Ignore" style="width: 100%; height: 100%;" />
+    </ui:VisualElement>
+</ui:UXML>

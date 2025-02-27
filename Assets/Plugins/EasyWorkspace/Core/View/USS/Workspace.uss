@@ -1,0 +1,15 @@
+.inspector-inactive {
+    width: 200px;
+    opacity: 0;
+    left: -200px;
+    position: absolute;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-circ;
+    height: auto;
+}
+
+.inspector-active {
+    opacity: 1;
+    position: absolute;
+    left: 0;
+}

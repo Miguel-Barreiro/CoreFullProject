@@ -1,0 +1,12 @@
+.title-default {
+    -unity-text-align: middle-center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    height: 25px;
+}

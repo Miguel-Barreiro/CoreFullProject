@@ -1,0 +1,15 @@
+.buttonIcon {
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-slice-left: 2;
+    -unity-slice-top: 2;
+    -unity-slice-right: 2;
+    -unity-slice-bottom: 2;
+}
+
+.buttonIconWorkspace {
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-slice-left: 4;
+    -unity-slice-top: 4;
+    -unity-slice-right: 4;
+    -unity-slice-bottom: 4;
+}
