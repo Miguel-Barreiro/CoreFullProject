@@ -1,7 +1,7 @@
 using Core.Initialization;
 using Core.View.UI;
-using EasyButtons;
 using UnityEngine;
+using VInspector;
 using Zenject;
 
 namespace Testing_Core.UI_Test
@@ -34,6 +34,8 @@ namespace Testing_Core.UI_Test
 		[Button]
 		protected void GoToOtherScene()
 		{
+			Debug.Log($"switching to testing_core"); 
+
 			ScenesController.SwitchScene("testing_core");
 		}
 
