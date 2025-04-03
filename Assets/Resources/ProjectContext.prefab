@@ -74,3 +74,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8be26efa8b4db9812edda16f88ba86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rootUIPrefab: {fileID: 514627458457993771, guid: 8a3e7bbcc68eaf94ab751ccbab039cec, type: 3}

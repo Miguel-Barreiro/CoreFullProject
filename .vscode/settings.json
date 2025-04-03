@@ -3,5 +3,6 @@
         "Zenject"
     ],
     "editor.fontSize": 18,
-    "dotnet.preferCSharpExtension": true
+    "dotnet.preferCSharpExtension": true,
+    "dotnet.defaultSolution": "CoreFullProject.sln"
 }

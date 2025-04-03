@@ -3,6 +3,6 @@ using Testing_Core.UI_Test;
 
 public class ScreenAUIView : UIView<ScreenAUIMessenger>
 {
-
-    public override void Register(ScreenAUIMessenger uiEvent) {  }
+	protected override void OnUnregister(ScreenAUIMessenger uiMessenger) {  }
+	protected override void OnRegister(ScreenAUIMessenger uiMessenger) {  }
 }

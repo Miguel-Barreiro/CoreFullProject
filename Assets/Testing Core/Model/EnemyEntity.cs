@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Testing_Core.Model
 {
-    public sealed class EnemyEntity : BaseEntity, IPositionEntity, IAlive
+    public sealed class EnemyEntity : BaseEntity, IKineticEntity, IAlive
     {
         public EnemyEntity(int maxHealth, Vector2 startPosition, GameObject prefab)
         {
@@ -27,7 +27,7 @@ namespace Testing_Core.Model
 
         #region Position
 
-        public Vector2 Position { get; }
+        public Vector2 Position { get; set; }
         public GameObject Prefab { get; private set; }
 
         #endregion

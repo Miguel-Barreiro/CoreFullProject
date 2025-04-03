@@ -25,7 +25,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
         
         protected override void InstallTestSystems(IUnitTestInstaller installer) 
         {
-            installer.AddTestSystem<StatsSystem>(new StatsSystemImplementation());
+            // installer.AddTestSystem<StatsSystem>(new StatsSystemImplementation());
         }
         
         [SetUp]
@@ -1466,6 +1466,195 @@ namespace Testing_Core.Editor.UnitTests.Stats
             // Assert
             Fix currentValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
             Assert.That(currentValue, Is.EqualTo(testStat.DefaultMinValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("PermanentModifiers")]
+        public void AddPermanentModifier_AdditiveType_CorrectlyModifiesStat()
+        {
+            // Arrange
+            Fix modifierValue = 2;
+
+            // Act
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, modifierValue, 
+                                                       StatModifierType.Additive);
+            Fix resultValue = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(resultValue, Is.EqualTo(testStat.DefaultBaseValue + modifierValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("PermanentModifiers")]
+        public void AddPermanentModifier_MultipleModifiers_AllApply()
+        {
+            // Arrange
+            Fix modifier1 = 2;
+            Fix modifier2 = 3;
+
+            // Act
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, modifier1, StatModifierType.Additive);
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, modifier2, StatModifierType.Additive);
+            Fix resultValue = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(resultValue, Is.EqualTo(testStat.DefaultBaseValue + modifier1 + modifier2));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("PermanentModifiers")]
+        public void AddPermanentModifier_PercentageType_CalculatesCorrectly()
+        {
+            // Arrange
+            Fix baseValue = testStat.DefaultBaseValue;
+            Fix percentageIncrease = Fix.Ratio(1, 4); // 25% increase
+
+            // Act
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, percentageIncrease, 
+                                                       StatModifierType.Percentage);
+            Fix resultValue = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Fix expectedValue = baseValue + (baseValue * percentageIncrease);
+            Assert.That(resultValue, Is.EqualTo(expectedValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("PermanentModifiers")]
+        public void AddPermanentModifier_WithRegularModifiers_BothApply()
+        {
+            // Arrange
+            Fix permanentModifier = 3;
+            Fix regularModifier = 2;
+
+            // Act
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, permanentModifier, 
+                                                       StatModifierType.Additive);
+            StatModId regModId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, regularModifier, 
+                                                       StatModifierType.Additive);
+            Fix resultValue = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(resultValue, Is.EqualTo(testStat.DefaultBaseValue + permanentModifier + regularModifier));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("PermanentModifiers")]
+        public void AddPermanentModifier_RemoveModifier_OnlyRemovesRegularModifier()
+        {
+            // Arrange
+            Fix permanentModifier = 3;
+            Fix regularModifier = 2;
+
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, permanentModifier, 
+                                                       StatModifierType.Additive);
+            StatModId regModId = StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, regularModifier, 
+                                                       StatModifierType.Additive);
+            
+            Fix valueBeforeRemoval = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Act
+            StatsSystem.RemoveModifier(regModId);
+            Fix valueAfterRegularRemoval = StatsSystem.GetStatValue(_target.ID, testStat);
+            
+            // Assert
+            Assert.That(valueBeforeRemoval, Is.EqualTo(testStat.DefaultBaseValue + permanentModifier + regularModifier));
+            Assert.That(valueAfterRegularRemoval, Is.EqualTo(testStat.DefaultBaseValue + permanentModifier));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("PermanentModifiers")]
+        public void AddPermanentModifier_EntityDestroyed_ModifiersRemain()
+        {
+            // Arrange
+            Fix permanentModifier = 3;
+            Fix regularModifier = 2;
+
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, permanentModifier, 
+                                                       StatModifierType.Additive);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, regularModifier, 
+                                                       StatModifierType.Additive);
+            
+            Fix valueBeforeDestroy = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Act
+            _owner.Destroy();
+            ExecuteFrame(1); // Wait for end of frame cleanup
+
+            Fix valueAfterDestroy = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(valueBeforeDestroy, Is.EqualTo(testStat.DefaultBaseValue + permanentModifier + regularModifier));
+            Assert.That(valueAfterDestroy, Is.EqualTo(testStat.DefaultBaseValue + permanentModifier));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("PermanentModifiers")]
+        public void AddPermanentModifier_TargetDestroyed_ModifiersRemoved()
+        {
+            // Arrange
+            Fix permanentModifier = 3;
+
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, permanentModifier, 
+                                                       StatModifierType.Additive);
+            
+            Fix valueBeforeDestroy = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Act
+            _target.Destroy();
+            ExecuteFrame(1); // Wait for end of frame cleanup
+
+            Fix valueAfterDestroy = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(valueBeforeDestroy, Is.EqualTo(testStat.DefaultBaseValue + permanentModifier));
+            Assert.That(valueAfterDestroy, Is.EqualTo(testStat.DefaultBaseValue));
+        }
+
+
+        [Test]
+        [Category("Stats")]
+        [Category("PermanentModifiers")]
+        public void AddPermanentModifier_DifferentTypes_CalculatesCorrectly()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix additive = 2;
+            Fix percentage = Fix.Ratio(1, 2); // 50%
+            Fix multiplicative = 2;
+            Fix postAdditive = 3;
+            
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+
+            // 10 + 2
+            //  12 * 1.5
+            //     18 * 2
+            //         36 + 3
+            //             39
+                
+            // Act
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, additive, StatModifierType.Additive);
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, percentage, StatModifierType.Percentage);
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, multiplicative, StatModifierType.Multiplicative);
+            StatsSystem.AddPermanentModifier(_target.ID, testStat, postAdditive, StatModifierType.AdditivePostMultiplicative);
+
+            Fix resultValue = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            // Expected: (((base + additive) * (1 + percentage)) * multiplicative) + postAdditive
+            Fix baseAndAdditive = baseValue + additive;
+            Fix afterPercentage = baseAndAdditive + (baseAndAdditive * percentage);
+            Fix afterMultiplicative = afterPercentage * multiplicative;
+            Fix expectedValue = afterMultiplicative + postAdditive;
+            
+            Assert.That(resultValue, Is.EqualTo(expectedValue));
         }
 
         private class EntityA : BaseEntity { }

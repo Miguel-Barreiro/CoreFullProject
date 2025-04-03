@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7915df4cd4da490ab52fc8fa9ee9127, type: 3}
-  m_Name: vInspector Data
+  m_Script: {fileID: 11500000, guid: d4ee633d6d08407eb1fa627831b9c54d, type: 3}
+  m_Name: TestStat
   m_EditorClassIdentifier: 
-  bookmarks: []
+  Id: -qmANQ_hvvk
+  name: Test Stat
+  defaultBaseValue: 1
+  defaultMaxValue: 99
+  defaultMinValue: 0
+  description: Test Stat for Timer unit tests
