@@ -5,24 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd9a6987-ecb6-4368-83cf-6cf813aeb878" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TestStat.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TestStat.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TimerSystemTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TimerSystemTests.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core.Runtime.csproj.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestsBase.csproj.DotSettings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Core" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/vInspector/vInspector Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/vInspector/vInspector Data.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ProjectContext.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ProjectContext.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/testing_ui.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/testing_ui.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/EnemyEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Model/EnemyEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/UI Test/ScreenAUIView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/UI Test/ScreenAUIView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,29 +18,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/47/1dc194cc/Is.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/85/68f5f781/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
@@ -204,7 +166,9 @@
       <workItem from="1742386093933" duration="2026000" />
       <workItem from="1743120194065" duration="3648000" />
       <workItem from="1743507473419" duration="4685000" />
-      <workItem from="1743522699575" duration="14791000" />
+      <workItem from="1743522699575" duration="16899000" />
+      <workItem from="1744024947463" duration="1260000" />
+      <workItem from="1744210806002" duration="4030000" />
     </task>
     <servers />
   </component>

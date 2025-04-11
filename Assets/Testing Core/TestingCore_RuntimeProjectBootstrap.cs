@@ -24,6 +24,7 @@ namespace Testing_Core
         protected override void InstallSystems()
         {
             BindInstance(new TestingCore_EventReactSystem());
+            BindInstance(new TestingCore_PostEventReactSystem());
         }
 
         public TestingCore_ProjectInstaller(DiContainer container) : base(container) { }

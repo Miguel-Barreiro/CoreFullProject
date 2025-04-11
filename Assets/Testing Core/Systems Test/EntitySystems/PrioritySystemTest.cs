@@ -11,13 +11,13 @@ namespace Testing_Core.EntitySystems
 	{
 		public override void OnNew(IPositionEntity newComponent)
 		{
-			Debug.Log($"on NEW physics entity: LATE");
+			// Debug.Log($"on NEW physics entity: LATE");
 		}
 		public override void OnDestroy(IPositionEntity newComponent) {  }
 
 		public override void Update(IPositionEntity component, float deltaTime)
 		{
-			Debug.Log($"on update physics entity: LATE");
+			// Debug.Log($"on update physics entity: LATE");
 		}
 
 		public override SystemGroup Group { get; } = CoreSystemGroups.CoreSystemGroup;

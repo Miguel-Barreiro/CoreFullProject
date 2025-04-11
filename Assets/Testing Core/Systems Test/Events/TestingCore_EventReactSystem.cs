@@ -8,13 +8,25 @@ namespace Testing_Core.Systems_Test.Events
 	{
 		public void OnEvent(StartGameEvent onEvent)
 		{
-			Debug.Log($"EventReactSystemTest: ON StartGameEvent");
+			Debug.Log($"EventReactSystemTest: ON PRE StartGameEvent");
 
 		}
 
 		public void OnEvent(PostStartGameEvent onEvent)
 		{
-			Debug.Log($"EventReactSystemTest: ON POST StartGameEvent");
+			Debug.Log($"EventReactSystemTest: ON PRE PostStartGameEvent");
 		}
 	}
+	
+	
+	public class TestingCore_PostEventReactSystem : IPostEventListener<StartGameEvent>
+	{
+		public void OnPostEvent(StartGameEvent onEvent)
+		{
+			Debug.Log($"PostEventReactSystemTest: ON Post StartGameEvent");
+
+		}
+
+	}
+
 }
