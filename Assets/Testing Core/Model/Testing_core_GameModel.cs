@@ -7,19 +7,22 @@ using Zenject;
 
 namespace Testing_Core.Model
 {
-    public class GameModel : BaseEntity
+    public class Testing_core_GameModel : Entity, IStatsComponent
     {
         [Inject] private readonly GameConfig GameConfig = null!;
         [Inject] private readonly EventQueue EventQueue = null!;
+
+        [Inject] private readonly Testing_core_EnemyLogic EnemyLogic = null!;
         
-        public readonly List<EnemyEntity> Enemies = new List<EnemyEntity>();
+        public readonly List<EntId> Enemies = new List<EntId>();
         
         public void Start()
         {
-            Enemies.Add(new EnemyEntity(100, Vector2.one, GameConfig.EnemyPrefab));
-            Enemies.Add(new EnemyEntity(100, Vector2.one * 5, GameConfig.EnemyPrefab));
-            Enemies.Add(new EnemyEntity(100, Vector2.one * 10, GameConfig.EnemyPrefab));
 
+            Enemies.Add(EnemyLogic.SpawnEnemy(100, Vector2.one, GameConfig.EnemyPrefab));
+            Enemies.Add(EnemyLogic.SpawnEnemy(100, Vector2.one * 5, GameConfig.EnemyPrefab));
+            Enemies.Add(EnemyLogic.SpawnEnemy(100, Vector2.one * 10, GameConfig.EnemyPrefab));
+            
             StartGameEvent newEvent = EventQueue.Execute<StartGameEvent>();
             newEvent.TestArgument = 666;
 
@@ -27,6 +30,6 @@ namespace Testing_Core.Model
             
             return;
         }
-        
+
     }
 }

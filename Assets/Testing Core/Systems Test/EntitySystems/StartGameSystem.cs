@@ -6,11 +6,11 @@ namespace Testing_Core.EntitySystems
 {
     public class StartGameSystem : IStartSystem
     {
-        [Inject] private readonly GameModel gameModel = null!;
+        [Inject] private readonly Testing_core_GameModel TestingCoreGameModel = null!;
 
         public void StartSystem()
         {
-            gameModel.Start();
+            TestingCoreGameModel.Start();
         }
     }
 }

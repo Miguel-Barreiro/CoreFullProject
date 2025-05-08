@@ -1,4 +1,5 @@
 ﻿using Core.Initialization;
+using Core.Model.ModelSystems;
 using Core.Zenject.Source.Main;
 using Testing_Core.ComponentSystems;
 using Testing_Core.EntitySystems;
@@ -36,17 +37,29 @@ namespace Testing_Core
 
         protected override void InstallSystems()
         {
-            GameModel gameModel = new GameModel();
-            BindInstance(gameModel);
+            Testing_core_GameModel testingCoreGameModel = new Testing_core_GameModel();
+            BindInstance(testingCoreGameModel);
             
             StartGameSystem startGameSystem = new StartGameSystem();
             BindInstance(startGameSystem);
+            
+            BindInstance(new Testing_core_EnemyLogic());
             
             BindInstance(GameConfig);
             
             BindInstance(new AliveComponentSystem());
             BindInstance(new PrioritySystemTest());
             BindInstance(new BaseEntitySystemsTest());
+            
+            
+            BindInstance(new DD_Testing_UpdateComponentDatasSystem());
+            BindInstance(new DD_Testing_ComponentDatasLifeCycleSystem());
         }
+
+        public override void ResetComponentContainers(DataContainersController dataContainersController)
+        {
+            
+        }
+
     }
 }

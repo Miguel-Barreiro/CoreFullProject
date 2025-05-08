@@ -33,13 +33,14 @@ namespace Testing_Core.Editor.UnitTests.Stats
         {
             _owner = new EntityA();
             _target = new EntityB();
+            this.ExecuteFrame(1);
         }
 
         [TearDown]
         public void TearDown()
         {
-            _owner.Destroy();
-            _target.Destroy();
+            EntitiesContainer.DestroyEntity(_owner.ID);
+            EntitiesContainer.DestroyEntity(_target.ID);
             EntitiesContainer.Reset();
             StatsSystem.Reset();
         }
@@ -1657,9 +1658,9 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Assert.That(resultValue, Is.EqualTo(expectedValue));
         }
 
-        private class EntityA : BaseEntity { }
+        private class EntityA : Entity, IStatsComponent { }
 
-        private class EntityB : BaseEntity { }
+        private class EntityB : Entity, IStatsComponent { }
 
     }
 } 

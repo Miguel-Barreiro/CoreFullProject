@@ -3,29 +3,45 @@ using Core.Model.ModelSystems;
 using Core.Systems;
 using Testing_Core.Components;
 using UnityEngine;
+using Zenject;
 
 namespace Testing_Core.ComponentSystems
 {
-    public class AliveComponentSystem : ComponentSystem<IAlive>
+    public class AliveComponentSystem :  ISystem, 
+                                        OnDestroyComponent<AliveComponentData>,
+                                        OnCreateComponent<AliveComponentData>, 
+                                        UpdateComponents<AliveComponentData>
     {
-        public override void OnNew(IAlive newComponent)
-        {
-            Debug.Log($" new ALIVE component: {newComponent.ID}");
-        }
 
-        public override void OnDestroy(IAlive newComponent)
+        [Inject] private readonly EntitiesContainer EntitiesContainer = null!;
+        
+        public void OnDestroyComponent(EntId destroyedComponentId)
         {
-            Debug.Log($" ALIVE component destroyed: {newComponent.ID}");
+            Debug.Log($" ALIVE component destroyed: {destroyedComponentId}");
         }
-
-        public override void Update(IAlive component, float deltaTime)
+        
+        public void OnCreateComponent(EntId newComponentId)
         {
-            if (!component.IsAlive)
+            Debug.Log($" new ALIVE component: {newComponentId}");
+        }
+        
+        public void UpdateComponents(ComponentContainer<AliveComponentData> container, float deltaTime)
+        {
+            container.ResetIterator();
+            while (container.MoveNext())
             {
-                component.Destroy();
+                ref AliveComponentData aliveComponentData = ref container.GetCurrent();
+                
+                if (!aliveComponentData.IsAlive)
+                {
+                    EntitiesContainer.GetEntity(aliveComponentData.ID)?.Destroy();
+                }
+                
             }
         }
 
-        public override SystemGroup Group { get; } = CoreSystemGroups.CoreSystemGroup;
-    }
+        public bool Active { get; set; } = true;
+		public SystemGroup Group { get; } = CoreSystemGroups.CoreSystemGroup;
+        
+	}
 }

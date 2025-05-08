@@ -1,4 +1,5 @@
 using Core.Initialization;
+using Core.Model.ModelSystems;
 using Core.View.UI;
 using Core.Zenject.Source.Main;
 using UnityEngine;
@@ -47,5 +48,8 @@ namespace Testing_Core.UI_Test
 			
 			BindInstance(TestUIController);
 		}
+
+		public override void ResetComponentContainers(DataContainersController dataContainersController) {  }
+
 	}
 }

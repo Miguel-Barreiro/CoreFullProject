@@ -1,4 +1,5 @@
 ﻿using Core.Initialization;
+using Core.Model.ModelSystems;
 using Core.Zenject.Source.Main;
 using Testing_Core.Systems_Test.Events;
 
@@ -26,6 +27,9 @@ namespace Testing_Core
             BindInstance(new TestingCore_EventReactSystem());
             BindInstance(new TestingCore_PostEventReactSystem());
         }
+
+        public override void ResetComponentContainers(DataContainersController dataContainersController) {  }
+        
 
         public TestingCore_ProjectInstaller(DiContainer container) : base(container) { }
     }

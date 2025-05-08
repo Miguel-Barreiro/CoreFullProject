@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestStat
   m_EditorClassIdentifier: 
   Id: -qmANQ_hvvk
-  name: Test Stat
+  name: Test Stat for timer test
   defaultBaseValue: 1
   defaultMaxValue: 99
   defaultMinValue: 0

@@ -21,6 +21,7 @@ namespace Testing_Core.Editor.UnitTests.Timer
 
         [Inject] private readonly TimerSystem TimerSystem = null!;
         [Inject] private readonly StatsSystem StatsSystem = null!;
+        [Inject] private readonly EntitiesContainer EntitiesContainer = null!;
         
         protected override void InstallTestSystems(IUnitTestInstaller installer) 
         {
@@ -224,6 +225,6 @@ namespace Testing_Core.Editor.UnitTests.Timer
         }
         
         
-        private class MockEntity : BaseEntity, ITimerComponent { }
+        private class MockEntity : Entity, ITimerComponent, IStatsComponent { }
     }
 } 
