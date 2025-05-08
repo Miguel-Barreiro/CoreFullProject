@@ -54,7 +54,7 @@ namespace Testing_Core.Editor.UnitTests.Timer
             float expirationMs = 1000;
             
             // Act
-            TimerSystem.SetTimer(_entity, timerId, expirationMs, false, false);
+            TimerSystem.SetTimer(_entity.ID, timerId, expirationMs, false, false);
             
             // Assert
             Assert.IsTrue(TimerSystem.HasTimer(_entity.ID, timerId));
@@ -72,7 +72,7 @@ namespace Testing_Core.Editor.UnitTests.Timer
             Fix statValue = StatsSystem.GetStatValue(_entity.ID, TestStat);
             
             // Act
-            TimerSystem.SetTimer(_entity, timerId, TestStat, false, false);
+            TimerSystem.SetTimer(_entity.ID, timerId, TestStat, false, false);
             
             // Assert
             Assert.IsTrue(TimerSystem.HasTimer(_entity.ID, timerId));
@@ -87,10 +87,10 @@ namespace Testing_Core.Editor.UnitTests.Timer
         {
             // Arrange
             string timerId = "testTimer";
-            TimerSystem.SetTimer(_entity, timerId, 1000, false, false);
+            TimerSystem.SetTimer(_entity.ID, timerId, 1000, false, false);
             
             // Act
-            TimerSystem.RemoveTimer(_entity, timerId);
+            TimerSystem.RemoveTimer(_entity.ID, timerId);
             
             // Assert
             Assert.IsFalse(TimerSystem.HasTimer(_entity.ID, timerId));
@@ -102,7 +102,7 @@ namespace Testing_Core.Editor.UnitTests.Timer
             // Arrange
             string timerId = "testTimer";
             float expirationMs = 1000;
-            TimerSystem.SetTimer(_entity, timerId, expirationMs, false, false);
+            TimerSystem.SetTimer(_entity.ID, timerId, expirationMs, false, false);
             
             // Simulate time passing
             ExecuteFrameMs(500);
@@ -113,7 +113,7 @@ namespace Testing_Core.Editor.UnitTests.Timer
             Assert.AreEqual(500, beforeReset.Result);
             
             // Act
-            TimerSystem.ResetTimer(_entity, timerId);
+            TimerSystem.ResetTimer(_entity.ID, timerId);
             
             // Assert
             OperationResult<float> afterReset = TimerSystem.GetMillisecondsLeft(_entity.ID, timerId);
@@ -129,8 +129,8 @@ namespace Testing_Core.Editor.UnitTests.Timer
             float expirationMs = 1000;
             bool listenerCalled = false;
             
-            TimerSystem.SetTimer(_entity, timerId, expirationMs, false, false);
-            TimerSystem.AddOnFinishListener(_entity, timerId, (entId) => {
+            TimerSystem.SetTimer(_entity.ID, timerId, expirationMs, false, false);
+            TimerSystem.AddOnFinishListener(_entity.ID, timerId, (entId) => {
                 listenerCalled = true;
                 Assert.AreEqual(_entity.ID, entId);
             });
@@ -149,7 +149,7 @@ namespace Testing_Core.Editor.UnitTests.Timer
             string timerId = "testTimer";
             float expirationMs = 1000;
             
-            TimerSystem.SetTimer(_entity, timerId, expirationMs, true, false);
+            TimerSystem.SetTimer(_entity.ID, timerId, expirationMs, true, false);
             
             
             // Act
@@ -168,7 +168,7 @@ namespace Testing_Core.Editor.UnitTests.Timer
             string timerId = "testTimer";
             float expirationMs = 1000;
             
-            TimerSystem.SetTimer(_entity, timerId, expirationMs, false, false);
+            TimerSystem.SetTimer(_entity.ID, timerId, expirationMs, false, false);
             
             // Act
             ExecuteFrameMs(1500);
@@ -188,9 +188,9 @@ namespace Testing_Core.Editor.UnitTests.Timer
             bool listenerCalled = false;
             Action<EntId> listener = (id) => { listenerCalled = true; };
             
-            TimerSystem.SetTimer(_entity, timerId, expirationMs, false, false);
-            TimerSystem.AddOnFinishListener(_entity, timerId, listener);
-            TimerSystem.RemoveOnFinishListener(_entity, timerId, listener);
+            TimerSystem.SetTimer(_entity.ID, timerId, expirationMs, false, false);
+            TimerSystem.AddOnFinishListener(_entity.ID, timerId, listener);
+            TimerSystem.RemoveOnFinishListener(_entity.ID, timerId, listener);
             
             // Act
             ExecuteFrameMs(1000);
@@ -214,7 +214,7 @@ namespace Testing_Core.Editor.UnitTests.Timer
         {
             // Arrange
             string timerId = "testTimer";
-            TimerSystem.SetTimer(_entity, timerId, 1000, false, false);
+            TimerSystem.SetTimer(_entity.ID, timerId, 1000, false, false);
             
             // Act
             _entity.Destroy();

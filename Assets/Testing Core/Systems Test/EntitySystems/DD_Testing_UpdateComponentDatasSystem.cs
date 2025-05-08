@@ -26,6 +26,8 @@ namespace Testing_Core.EntitySystems
 		public void UpdateComponents(ComponentContainer<TestDD1ComponentData> componentsContainer, float deltaTime)
 		{
 
+			Debug.Log($"DD_Testing_UpdateComponentDatasSystem: Updating components");
+			
 			if(timesDebug < 0) 
 				return;
 

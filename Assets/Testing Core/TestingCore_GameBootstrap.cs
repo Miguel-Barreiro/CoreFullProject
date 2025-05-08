@@ -4,6 +4,7 @@ using Core.Zenject.Source.Main;
 using Testing_Core.ComponentSystems;
 using Testing_Core.EntitySystems;
 using Testing_Core.Model;
+using Testing_Core.Systems_Test;
 using UnityEngine;
 
 namespace Testing_Core
@@ -49,8 +50,9 @@ namespace Testing_Core
             
             BindInstance(new AliveComponentSystem());
             BindInstance(new PrioritySystemTest());
-            BindInstance(new BaseEntitySystemsTest());
+
             
+            BindInstance(new Testing_core_TestingISystem());
             
             BindInstance(new DD_Testing_UpdateComponentDatasSystem());
             BindInstance(new DD_Testing_ComponentDatasLifeCycleSystem());
