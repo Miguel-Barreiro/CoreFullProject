@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core.Editor;
 using Core.Model;
+using Core.Model.ModelSystems;
 using Core.Model.Stats;
 using FixedPointy;
 using NUnit.Framework;
@@ -27,7 +28,12 @@ namespace Testing_Core.Editor.UnitTests.Stats
         {
             // installer.AddTestSystem<StatsSystem>(new StatsSystemImplementation());
         }
-        
+
+        protected override void ResetComponentContainers(DataContainersController dataController)
+        {
+            dataController.ResizeComponentsContainer<StatsComponentData>(3000);
+        }
+
         [SetUp]
         public void SetUp()
         {

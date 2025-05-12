@@ -10,23 +10,34 @@ namespace Testing_Core.EntitySystems
 	public class DD_Testing_UpdateComponentDatasSystem : IStartSystem, UpdateComponents<TestDD1ComponentData>
 	{
 
-		[Inject] private readonly EntitiesContainer EntitiesContainer = null!;
+		// [Inject] private readonly EntitiesContainer EntitiesContainer = null!;
 
+
+		[Inject] private readonly ComponentContainer<TestDD1ComponentData> TestDD1ComponentContainer = null!;
 
 		private int timesDebug = 10;
 
 
 		public void StartSystem()
 		{
-			new EntityTestDD();
-			new EntityTestDD();
+			EntityTestDD entityTestDd1 = new EntityTestDD();
+			EntityTestDD entityTestDd2 = new EntityTestDD();
+
+			ref TestDD1ComponentData testDd1ComponentData = ref TestDD1ComponentContainer.GetComponent(entityTestDd1.ID);
+			ref TestDD1ComponentData testDd1ComponentData2 = ref TestDD1ComponentContainer.GetComponent(entityTestDd2.ID);
+			
+			testDd1ComponentData.Value = 99;
+			testDd1ComponentData2.Value = 999;
+			
+			Debug.Log($"DD_Testing_UpdateComponentDatasSystem: INIT components {entityTestDd1.ID} {entityTestDd2.ID}");
+
 			timesDebug = 10;
 		}
 		
 		public void UpdateComponents(ComponentContainer<TestDD1ComponentData> componentsContainer, float deltaTime)
 		{
 
-			Debug.Log($"DD_Testing_UpdateComponentDatasSystem: Updating components");
+			// Debug.Log($"DD_Testing_UpdateComponentDatasSystem: Updating components");
 			
 			if(timesDebug < 0) 
 				return;
@@ -42,7 +53,7 @@ namespace Testing_Core.EntitySystems
 					EntitiesContainer.DestroyEntity(component.ID);
 
 				component.Value++;
-				Debug.Log($"entity {component.ID} value: {component.Value}");
+				Debug.Log($"DD_Testing_UpdateComponentDatasSystem: UPDATE {component.ID} value: {component.Value}");
 			}
 		}
 		

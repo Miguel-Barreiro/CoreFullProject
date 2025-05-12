@@ -3,6 +3,7 @@
 using System;
 using Core.Editor;
 using Core.Model;
+using Core.Model.ModelSystems;
 using Core.Model.Stats;
 using Core.Model.Time;
 using Core.Utils;
@@ -30,7 +31,13 @@ namespace Testing_Core.Editor.UnitTests.Timer
             // installer.AddTestSystem<StatsSystem>(new StatsSystemImplementation());
         }
 
-        
+        protected override void ResetComponentContainers(DataContainersController dataController)
+        {
+            dataController.ResizeComponentsContainer<TimerComponentData>(300);
+            dataController.ResizeComponentsContainer<StatsComponentData>(3000);
+        }
+
+
         [SetUp]
         public void Setup()
         {

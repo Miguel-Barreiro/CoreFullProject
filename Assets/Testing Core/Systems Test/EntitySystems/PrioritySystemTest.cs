@@ -10,7 +10,7 @@ namespace Testing_Core.EntitySystems
 	// [OnDestroyProperties(LifetimePriority = SystemPriority.Late, UpdatePriority = SystemPriority.Late)]
 	[OnCreateComponentProperties(Priority = SystemPriority.Late)]
 	[UpdateComponentProperties(Priority = SystemPriority.Late)]
-	public sealed class PrioritySystemTest : ISystem, OnCreateComponent<PositionEntity>, UpdateComponents<PositionEntity>
+	public sealed class PrioritySystemTest : ISystem, OnCreateComponent<PositionComponentData>, UpdateComponents<PositionComponentData>
 	{
 		// [Inject] private readonly ComponentContainer<PositionEntity> ComponentContainer = null!;
 		
@@ -20,7 +20,7 @@ namespace Testing_Core.EntitySystems
 			Debug.Log($"on NEW physics entity: LATE"); 
 		}
 
-		public void UpdateComponents(ComponentContainer<PositionEntity> componentsContainer, float deltaTime)
+		public void UpdateComponents(ComponentContainer<PositionComponentData> componentsContainer, float deltaTime)
 		{
 			componentsContainer.ResetIterator();
 			while (componentsContainer.MoveNext())
