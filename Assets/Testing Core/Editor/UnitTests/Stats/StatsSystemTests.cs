@@ -1786,6 +1786,92 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Assert.That(resultValue, Is.EqualTo(maxValue));
         }
 
+        [Test]
+        [Category("Stats")]
+        public void RemoveAllModifiersFrom_MultipleModifiers_RemovesAllModifiers()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix modifier1 = 2;
+            Fix modifier2 = 3;
+            Fix modifier3 = 4;
+
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifier1, StatModifierType.Additive);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifier2, StatModifierType.Percentage);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifier3, StatModifierType.Multiplicative);
+
+            // Act
+            Fix valueBeforeRemoval = StatsSystem.GetStatValue(_target.ID, testStat);
+            StatsSystem.RemoveAllModifiersFrom(_owner.ID, _target.ID, testStat);
+            Fix valueAfterRemoval = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(valueAfterRemoval, Is.EqualTo(baseValue));
+            Assert.That(valueBeforeRemoval, Is.Not.EqualTo(baseValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void RemoveAllModifiersFrom_MultipleStats_OnlyRemovesFromSpecifiedStat()
+        {
+            // Arrange
+            Fix baseValue1 = 10;
+            Fix baseValue2 = 20;
+            Fix modifier1 = 2;
+            Fix modifier2 = 3;
+
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue1);
+            StatsSystem.SetBaseValue(_target.ID, overflowTestStat, baseValue2);
+            
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifier1, StatModifierType.Additive);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, overflowTestStat, modifier2, StatModifierType.Additive);
+
+            // Act
+            Fix value1BeforeRemoval = StatsSystem.GetStatValue(_target.ID, testStat);
+            Fix value2BeforeRemoval = StatsSystem.GetStatValue(_target.ID, overflowTestStat);
+            
+            StatsSystem.RemoveAllModifiersFrom(_owner.ID, _target.ID, testStat);
+            
+            Fix value1AfterRemoval = StatsSystem.GetStatValue(_target.ID, testStat);
+            Fix value2AfterRemoval = StatsSystem.GetStatValue(_target.ID, overflowTestStat);
+
+            // Assert
+            Assert.That(value1AfterRemoval, Is.EqualTo(baseValue1));
+            Assert.That(value2AfterRemoval, Is.EqualTo(value2BeforeRemoval));
+            Assert.That(value1BeforeRemoval, Is.Not.EqualTo(baseValue1));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void RemoveAllModifiersFrom_NoModifiers_NoEffect()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+
+            // Act
+            Fix valueBeforeRemoval = StatsSystem.GetStatValue(_target.ID, testStat);
+            StatsSystem.RemoveAllModifiersFrom(_owner.ID, _target.ID, testStat);
+            Fix valueAfterRemoval = StatsSystem.GetStatValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(valueAfterRemoval, Is.EqualTo(baseValue));
+            Assert.That(valueBeforeRemoval, Is.EqualTo(baseValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void RemoveAllModifiersFrom_NonExistentEntity_DoesNotThrow()
+        {
+            // Arrange
+            EntId nonExistentEntity = new EntId(999);
+
+            // Act & Assert
+            Assert.DoesNotThrow(() => StatsSystem.RemoveAllModifiersFrom(_owner.ID, nonExistentEntity, testStat));
+        }
+
         private class EntityA : Entity{ }
 
         private class EntityB : Entity { }
