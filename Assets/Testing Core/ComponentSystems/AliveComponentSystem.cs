@@ -14,6 +14,7 @@ namespace Testing_Core.ComponentSystems
     {
 
         [Inject] private readonly EntitiesContainer EntitiesContainer = null!;
+        [Inject] private readonly BasicCompContainer<AliveComponentData> container = null!;
         
         public void OnDestroyComponent(EntId destroyedComponentId)
         {
@@ -25,18 +26,14 @@ namespace Testing_Core.ComponentSystems
             Debug.Log($" new ALIVE component: {newComponentId}");
         }
         
-        public void UpdateComponents(ComponentContainer<AliveComponentData> container, float deltaTime)
+        public void UpdateComponents(float deltaTime)
         {
-            container.ResetIterator();
-            while (container.MoveNext())
+            uint topEmptyIndex = container.TopEmptyIndex;
+            for (int i = 0; i < topEmptyIndex; i++)
             {
-                ref AliveComponentData aliveComponentData = ref container.GetCurrent();
-                
-                if (!aliveComponentData.IsAlive)
-                {
+                ref AliveComponentData aliveComponentData = ref container.Components[i];
+                if (aliveComponentData.Health <= 0)
                     EntitiesContainer.GetEntity(aliveComponentData.ID)?.Destroy();
-                }
-                
             }
         }
 

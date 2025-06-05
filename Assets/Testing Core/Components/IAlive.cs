@@ -9,12 +9,12 @@ namespace Testing_Core.Components
     {
         public int MaxHealth;
         public int Health;
-        public bool IsAlive;
+        // public bool IsAlive;
         public EntId ID { get; set; }
         
         public void Init()
         {
-            IsAlive = true;
+            // IsAlive = true;
             MaxHealth = 100;
             Health = MaxHealth;
         }
@@ -22,10 +22,10 @@ namespace Testing_Core.Components
         public void TakeDamage(int damage)
         {
             Health -= damage;
-            if (Health <= 0)
-            {
-                IsAlive = false;
-            }
+            // if (Health <= 0)
+            // {
+            //     IsAlive = false;
+            // }
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using Core.Initialization;
 using Core.Model.ModelSystems;
+using Core.Model.Time;
 using Core.Zenject.Source.Main;
 using Testing_Core.Systems_Test.Events;
 
@@ -22,6 +23,12 @@ namespace Testing_Core
 
     public sealed class TestingCore_ProjectInstaller : SystemsInstallerBase
     {
+        public override void SetupConfigurations()
+        {
+            // TimerSystem timerSystem = GetSystem<TimerSystem>();
+            // timerSystem.SetGlobalTimerScalerStat(null);
+        }
+
         protected override void InstallSystems()
         {
             BindInstance(new TestingCore_EventReactSystem());

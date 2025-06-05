@@ -13,7 +13,7 @@ namespace Testing_Core.Editor.UnitTests.EntityEventsQueue
 
     public class EntityEventQueueTests : UnitTest
     {
-        [Inject] private readonly EntityEventQueue<TestEntityEvent> eventQueue = null!;
+        [Inject] private readonly IEntityEventQueue<TestEntityEvent> eventQueue = null!;
 
         protected override void InstallTestSystems(IUnitTestInstaller installer)
         {
@@ -33,7 +33,7 @@ namespace Testing_Core.Editor.UnitTests.EntityEventsQueue
         {
             // Arrange
             var entity = new TestEntity();
-            EntityEventQueue<TestEntityEvent>.EntityEventListener callback = (evt) => { };
+            IEntityEventQueue<TestEntityEvent>.EntityEventListener callback = (evt) => { };
 
             // Act
             eventQueue.AddEntityEventListener(entity.ID, callback);
@@ -130,7 +130,7 @@ namespace Testing_Core.Editor.UnitTests.EntityEventsQueue
         public void AddAndRemoveAllEntitiesEventListener_ShouldWorkCorrectly()
         {
             // Arrange
-            EntityEventQueue<TestEntityEvent>.EntityEventListener callback = (evt) => { };
+            IEntityEventQueue<TestEntityEvent>.EntityEventListener callback = (evt) => { };
 
             // Act
             eventQueue.AddAllEntitiesEventListener(callback);

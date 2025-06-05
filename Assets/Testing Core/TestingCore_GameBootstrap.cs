@@ -36,6 +36,8 @@ namespace Testing_Core
             GameConfig = gameConfig;
         }
 
+        public override void SetupConfigurations() { }
+
         protected override void InstallSystems()
         {
             Testing_core_GameModel testingCoreGameModel = new Testing_core_GameModel();

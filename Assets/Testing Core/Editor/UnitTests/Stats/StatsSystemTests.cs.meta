@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - testStat: {fileID: 11400000, guid: 6e97de45570c05b41b2369a4de12f3f3, type: 2}
+  - overflowTestStat: {fileID: 11400000, guid: 41f9cb6c602795543b0bf6af7dc1210b, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

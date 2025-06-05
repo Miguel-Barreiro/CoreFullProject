@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Testing_Core.Model
 {
-    public sealed class EnemyComponent : Entity, IKineticComponent, IAlive, IStatsComponent
+    public sealed class EnemyComponent : Entity, IAlive
     {
         // public EnemyEntity(int maxHealth, Vector2 startPosition, GameObject prefab)
         // {

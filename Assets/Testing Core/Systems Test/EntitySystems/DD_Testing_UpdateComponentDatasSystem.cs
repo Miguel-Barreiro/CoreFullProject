@@ -13,7 +13,8 @@ namespace Testing_Core.EntitySystems
 		// [Inject] private readonly EntitiesContainer EntitiesContainer = null!;
 
 
-		[Inject] private readonly ComponentContainer<TestDD1ComponentData> TestDD1ComponentContainer = null!;
+		[Inject] private readonly CustomComponentContainerDD1 TestDD1ComponentContainer = null!;
+
 
 		private int timesDebug = 10;
 
@@ -34,7 +35,7 @@ namespace Testing_Core.EntitySystems
 			timesDebug = 10;
 		}
 		
-		public void UpdateComponents(ComponentContainer<TestDD1ComponentData> componentsContainer, float deltaTime)
+		public void UpdateComponents(float deltaTime)
 		{
 
 			// Debug.Log($"DD_Testing_UpdateComponentDatasSystem: Updating components");
@@ -43,17 +44,21 @@ namespace Testing_Core.EntitySystems
 				return;
 
 			timesDebug--;
-			
-			componentsContainer.ResetIterator();
-			while (componentsContainer.MoveNext())
+
+			var componentsArray = TestDD1ComponentContainer.Components[0];
+			TestDD1ComponentData[] components = componentsArray.Items;
+			uint topEmptyIndex = componentsArray.Count;
+			for (uint i = 0; i < topEmptyIndex; i++)
 			{
-				ref TestDD1ComponentData component = ref componentsContainer.GetCurrent();
-				
+				ref TestDD1ComponentData component = ref components[i];
+
 				if (timesDebug == 0)
 					EntitiesContainer.DestroyEntity(component.ID);
 
 				component.Value++;
 				Debug.Log($"DD_Testing_UpdateComponentDatasSystem: UPDATE {component.ID} value: {component.Value}");
+
+				
 			}
 		}
 		
@@ -64,7 +69,8 @@ namespace Testing_Core.EntitySystems
 	public sealed class DD_Testing_ComponentDatasLifeCycleSystem : OnCreateComponent<TestDD1ComponentData>,
 																	OnDestroyComponent<TestDD1ComponentData>
 	{
-		[Inject] private readonly ComponentContainer<TestDD1ComponentData> ComponentContainer = null!;
+		[Inject] private readonly CustomComponentContainerDD1 ComponentContainer = null!;
+		
 		
 		public void OnCreateComponent(EntId newComponentId)
 		{

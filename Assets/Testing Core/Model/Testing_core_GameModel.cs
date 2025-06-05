@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Testing_Core.Model
 {
-    public class Testing_core_GameModel : Entity, IStatsComponent
+    public class Testing_core_GameModel : Entity
     {
         [Inject] private readonly GameConfig GameConfig = null!;
         [Inject] private readonly EventQueue EventQueue = null!;

@@ -38,6 +38,8 @@ namespace Testing_Core.UI_Test
 			TestUIController = testUIController;
 		}
 
+		public override void SetupConfigurations() { }
+
 		protected override void InstallSystems()
 		{
 			UIView<ScreenAUIMessenger> uiView = screenA_UI.GetComponent<UIView<ScreenAUIMessenger>>();

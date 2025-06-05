@@ -18,6 +18,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
         [Inject] private readonly StatsSystem StatsSystem = null!;
 
         [SerializeField] private StatConfig testStat;
+        [SerializeField] private StatConfig overflowTestStat;
 
         
         // private StatsSystem _statsSystem;
@@ -31,7 +32,6 @@ namespace Testing_Core.Editor.UnitTests.Stats
 
         protected override void ResetComponentContainers(DataContainersController dataController)
         {
-            dataController.ResizeComponentsContainer<StatsComponentData>(3000);
         }
 
         [SetUp]
@@ -1664,9 +1664,131 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Assert.That(resultValue, Is.EqualTo(expectedValue));
         }
 
-        private class EntityA : Entity, IStatsComponent { }
+        [Test]
+        [Category("Stats")]
+        [Category("Overflow")]
+        public void ChangeDepletedValue_WithOverflow_ExceedsMaximum()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix maxValue = 15;
+            Fix overflowAmount = 10;
+            StatsSystem.SetBaseValue(_target.ID, overflowTestStat, baseValue);
 
-        private class EntityB : Entity, IStatsComponent { }
+            // Act
+            StatsSystem.ChangeDepletedValue(_target.ID, overflowTestStat, overflowAmount);
+            Fix resultValue = StatsSystem.GetStatDepletedValue(_target.ID, overflowTestStat);
+
+            // Assert
+            Assert.That(resultValue, Is.EqualTo(baseValue + overflowAmount));
+            Assert.That(resultValue, Is.GreaterThan(maxValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Overflow")]
+        public void ChangeDepletedValue_WithoutOverflow_ClampsToMaximum()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix maxValue = baseValue;
+            Fix overflowAmount = 10;
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue, true);
+
+            // Act
+            StatsSystem.ChangeDepletedValue(_target.ID, testStat, overflowAmount);
+            Fix resultValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(resultValue, Is.EqualTo(maxValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Overflow")]
+        public void SetDepletedValue_WithOverflow_ExceedsMaximum()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix maxValue = baseValue;
+            Fix overflowValue = 20;
+            StatsSystem.SetBaseValue(_target.ID, overflowTestStat, baseValue);
+
+            // Act
+            StatsSystem.SetDepletedValue(_target.ID, overflowTestStat, overflowValue);
+            Fix resultValue = StatsSystem.GetStatDepletedValue(_target.ID, overflowTestStat);
+
+            // Assert
+            Assert.That(resultValue, Is.EqualTo(overflowValue));
+            Assert.That(resultValue, Is.GreaterThan(maxValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Overflow")]
+        public void SetDepletedValue_WithoutOverflow_ClampsToMaximum()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix maxValue = baseValue;
+            Fix overflowValue = 20;
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+
+            // Act
+            StatsSystem.SetDepletedValue(_target.ID, testStat, overflowValue);
+            Fix resultValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(resultValue, Is.EqualTo(maxValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Overflow")]
+        public void ChangeDepletedValue_WithOverflowAndModifiers_RespectsOverflow()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix maxValue = 15;
+            Fix overflowAmount = 10;
+            Fix modifierValue = 5;
+            StatsSystem.SetBaseValue(_target.ID, overflowTestStat, baseValue);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, overflowTestStat, modifierValue, StatModifierType.Additive);
+
+            // Act
+            StatsSystem.ChangeDepletedValue(_target.ID, overflowTestStat, overflowAmount);
+            Fix resultValue = StatsSystem.GetStatDepletedValue(_target.ID, overflowTestStat);
+
+            // Assert
+            Fix expectedValue = baseValue + modifierValue + overflowAmount;
+            Assert.That(resultValue, Is.EqualTo(expectedValue));
+            Assert.That(resultValue, Is.GreaterThan(maxValue + modifierValue));
+        }
+
+        [Test]
+        [Category("Stats")]
+        [Category("Overflow")]
+        public void ChangeDepletedValue_WithoutOverflowAndModifiers_ClampsToModifiedMaximum()
+        {
+            // Arrange
+            Fix baseValue = 10;
+            Fix modifierValue = 5;
+            Fix maxValue = baseValue + modifierValue;
+            Fix overflowAmount = 10;
+            StatsSystem.SetBaseValue(_target.ID, testStat, baseValue);
+            StatsSystem.AddModifier(_owner.ID, _target.ID, testStat, modifierValue, StatModifierType.Additive);
+
+            // Act
+            StatsSystem.ChangeDepletedValue(_target.ID, testStat, overflowAmount);
+            Fix resultValue = StatsSystem.GetStatDepletedValue(_target.ID, testStat);
+
+            // Assert
+            Assert.That(resultValue, Is.EqualTo(maxValue));
+        }
+
+        private class EntityA : Entity{ }
+
+        private class EntityB : Entity { }
 
     }
 } 

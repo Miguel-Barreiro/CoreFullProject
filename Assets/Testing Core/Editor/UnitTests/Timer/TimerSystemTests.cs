@@ -33,8 +33,6 @@ namespace Testing_Core.Editor.UnitTests.Timer
 
         protected override void ResetComponentContainers(DataContainersController dataController)
         {
-            dataController.ResizeComponentsContainer<TimerComponentData>(300);
-            dataController.ResizeComponentsContainer<StatsComponentData>(3000);
         }
 
 
@@ -232,6 +230,6 @@ namespace Testing_Core.Editor.UnitTests.Timer
         }
         
         
-        private class MockEntity : Entity, ITimerComponent, IStatsComponent { }
+        private class MockEntity : Entity{ }
     }
 } 

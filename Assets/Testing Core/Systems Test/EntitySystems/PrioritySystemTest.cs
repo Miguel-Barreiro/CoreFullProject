@@ -1,34 +1,35 @@
 using Core.Model;
 using Core.Model.ModelSystems;
 using Core.Systems;
+using Testing_Core.Components;
 using UnityEngine;
 using Zenject;
 
 namespace Testing_Core.EntitySystems
 {
 	
-	// [OnDestroyProperties(LifetimePriority = SystemPriority.Late, UpdatePriority = SystemPriority.Late)]
 	[OnCreateComponentProperties(Priority = SystemPriority.Late)]
 	[UpdateComponentProperties(Priority = SystemPriority.Late)]
-	public sealed class PrioritySystemTest : ISystem, OnCreateComponent<PositionComponentData>, UpdateComponents<PositionComponentData>
+	public sealed class PrioritySystemTest : OnCreateComponent<AliveComponentData>,
+											UpdateComponents<AliveComponentData>
 	{
-		// [Inject] private readonly ComponentContainer<PositionEntity> ComponentContainer = null!;
+		[Inject] private readonly BasicCompContainer<AliveComponentData> ComponentContainer = null!;
 		
 
 		public void OnCreateComponent(EntId newComponentId)
 		{
-			Debug.Log($"on NEW physics entity: LATE"); 
+			Debug.Log($"on NEW IAlive entity: LATE"); 
 		}
 
-		public void UpdateComponents(ComponentContainer<PositionComponentData> componentsContainer, float deltaTime)
+		public void UpdateComponents(float deltaTime)
 		{
-			componentsContainer.ResetIterator();
-			while (componentsContainer.MoveNext())
+			var components = ComponentContainer.Components;
+			uint topEmptyIndex = ComponentContainer.TopEmptyIndex;
+			for (int i = 0; i < topEmptyIndex; i++)
 			{
-				// PositionEntity positionEntity = ComponentContainer.GetCurrent();
-				Debug.Log($"on update physics entity: LATE");
+				ref AliveComponentData component = ref components[i];
+				Debug.Log($"on update IAlive entity: LATE");
 			}
-
 		}
 		
 		public bool Active { get; set; } = true;

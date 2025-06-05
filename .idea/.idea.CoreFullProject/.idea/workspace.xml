@@ -5,19 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd9a6987-ecb6-4368-83cf-6cf813aeb878" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityEventsQueue/EntityEventQueueTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityEventsQueue/EntityEventQueueTests.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Core" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/ComponentSystems/AliveComponentSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/ComponentSystems/AliveComponentSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Components/IAlive.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Components/IAlive.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityEventsQueue/EntityEventQueueTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityEventsQueue/EntityEventQueueTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TimerSystemTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TimerSystemTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/DataDrivenTests/DataDrivenComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Model/DataDrivenTests/DataDrivenComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/EnemyEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/EnemyEntity.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/EnemyComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Model/EnemyComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/Testing_core_EnemyLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Model/Testing_core_EnemyLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/Testing_core_GameModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Model/Testing_core_GameModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/DD_Testing_UpdateComponentDatasSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/DD_Testing_UpdateComponentDatasSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/PrioritySystemTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/PrioritySystemTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/TestingCore_GameBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/TestingCore_GameBootstrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/TestingCore_RuntimeProjectBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/TestingCore_RuntimeProjectBootstrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/UI Test/TestUI_Bootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/UI Test/TestUI_Bootstrap.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +34,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/47/1dc194cc/Is.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/85/68f5f781/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/a8/a3803e40/Does.cs" root0="SKIP_HIGHLIGHTING" />
@@ -38,10 +48,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2d509b23e716493bb6ab7d13cc52e0dc21000/29/8c92e1d1/CoreSystemsInstaller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2d8783c7af0442318483a199a473c55b175e00/f2/ed7db53a/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/2f/14584f6b/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5e6a77f3fd8e42f3ba60c3ccc8a7b8b2304000/56/d375e603/OnStateUpdateAttributeStateUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9049f45778604ae18ec20868d537cc5c10fc00/2b/824f984f/HashSet`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/0e/ed91bd9c/Environment.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/0f/ae220834/MethodBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/9f/900d2864/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/e0/fb7bcaad/Type.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/fa/a21aafa0/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f5b293c74049457cabc28437c5a763925a00/29/4e0db12d/InjectAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7f1f88cdb61fd5bebc3b1b5c3e94ce7079b8696198f4b7401a8cff4d9fba6696/System.Data.cs" root0="SKIP_HIGHLIGHTING" />
@@ -50,6 +62,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/Data/Stats/DataConfigConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/Data/Stats/StatTable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityEventsQueue/EntityEventQueueTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Model/TestTypes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TimerSystemTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Tests/Editor/SystemsManagerInspector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@fbe0bf8515/Runtime/CompilerServices/AsyncUniTaskMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
@@ -196,7 +209,13 @@
       <workItem from="1746530806264" duration="38571000" />
       <workItem from="1746787327071" duration="2418000" />
       <workItem from="1746886088878" duration="20180000" />
-      <workItem from="1747050120071" duration="1621000" />
+      <workItem from="1747050120071" duration="26990000" />
+      <workItem from="1747223711311" duration="14444000" />
+      <workItem from="1747585624344" duration="24536000" />
+      <workItem from="1747738222642" duration="13561000" />
+      <workItem from="1748258077570" duration="3027000" />
+      <workItem from="1748863946601" duration="20131000" />
+      <workItem from="1749085015103" duration="2850000" />
     </task>
     <servers />
   </component>
@@ -218,134 +237,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/DD_Testing_UpdateComponentDatasSystem.cs</url>
-          <line>29</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Testing Core\Systems Test\EntitySystems\DD_Testing_UpdateComponentDatasSystem.cs" containingFunctionPresentation="Method 'UpdateComponents'">
+          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Initialization/CoreSystemsInstaller.cs</url>
+          <line>61</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Initialization\CoreSystemsInstaller.cs" containingFunctionPresentation="Method 'BuildDataComponentContainers'">
             <startOffsets>
-              <option value="651" />
+              <option value="2154" />
             </startOffsets>
             <endOffsets>
-              <option value="658" />
+              <option value="2206" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/DD_Testing_UpdateComponentDatasSystem.cs</url>
-          <line>36</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Testing Core\Systems Test\EntitySystems\DD_Testing_UpdateComponentDatasSystem.cs" containingFunctionPresentation="Method 'UpdateComponents'">
-            <startOffsets>
-              <option value="772" />
-            </startOffsets>
-            <endOffsets>
-              <option value="846" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="133" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/DD_Testing_UpdateComponentDatasSystem.cs</url>
-          <line>39</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Testing Core\Systems Test\EntitySystems\DD_Testing_UpdateComponentDatasSystem.cs" containingFunctionPresentation="Method 'UpdateComponents'">
-            <startOffsets>
-              <option value="882" />
-            </startOffsets>
-            <endOffsets>
-              <option value="949" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="134" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/Time/TimerSystem.cs</url>
-          <line>244</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Model\Time\TimerSystem.cs" containingFunctionPresentation="Method 'OnDestroyComponent'">
-            <startOffsets>
-              <option value="9409" />
-            </startOffsets>
-            <endOffsets>
-              <option value="9465" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/Time/TimerSystem.cs</url>
-          <line>112</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Model\Time\TimerSystem.cs" containingFunctionPresentation="Method 'RemoveTimer'">
-            <startOffsets>
-              <option value="4306" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4399" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs</url>
-          <line>672</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Testing Core\Editor\UnitTests\Stats\StatsSystemTests.cs" containingFunctionPresentation="Method 'EntityLifecycle_SimultaneousDeaths_AllModifiersAreRemoved'">
-            <startOffsets>
-              <option value="25565" />
-            </startOffsets>
-            <endOffsets>
-              <option value="25596" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/Data/Stats/StatsSystem.cs</url>
-          <line>74</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Model\Data\Stats\StatsSystem.cs" containingFunctionPresentation="Method 'OnDestroyComponent'">
-            <startOffsets>
-              <option value="2258" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2315" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs</url>
-          <line>690</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Testing Core\Editor\UnitTests\Stats\StatsSystemTests.cs" containingFunctionPresentation="Method 'EntityLifecycle_SimultaneousDeaths_AllModifiersAreRemoved'">
-            <startOffsets>
-              <option value="26374" />
-            </startOffsets>
-            <endOffsets>
-              <option value="26391" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/EntitiesContainer.cs</url>
-          <line>156</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Model\EntitiesContainer.cs" containingFunctionPresentation="Method 'ClearAllFlushedDeadEntities'">
-            <startOffsets>
-              <option value="4326" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4382" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/EntitiesContainer.cs</url>
-          <line>143</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Model\EntitiesContainer.cs" containingFunctionPresentation="Method 'FlushCurrentDestroyedEntities'">
-            <startOffsets>
-              <option value="3976" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4024" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="158" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
