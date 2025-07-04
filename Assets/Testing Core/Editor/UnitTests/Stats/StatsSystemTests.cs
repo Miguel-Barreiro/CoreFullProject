@@ -1872,6 +1872,259 @@ namespace Testing_Core.Editor.UnitTests.Stats
             Assert.DoesNotThrow(() => StatsSystem.RemoveAllModifiersFrom(_owner.ID, nonExistentEntity, testStat));
         }
 
+        [Test]
+        [Category("Stats")]
+        public void CopyStats_CopiesAllStatsAndModifiers()
+        {
+            // Arrange
+            var source = new EntityA();
+            var target = new EntityB();
+
+            Fix baseValue = 10;
+            Fix depletedValue = 5;
+            Fix modifierValue = 3;
+            Fix modifierValueMult = 2;
+            Fix permanentValue = 2;
+            Fix expectedValue = (baseValue + modifierValue + permanentValue) * modifierValueMult;
+
+            StatsSystem.SetBaseValue(source.ID, testStat, baseValue);
+            StatModId modId = StatsSystem.AddModifier(_owner.ID, source.ID, testStat, modifierValue, StatModifierType.Additive);
+            StatModId modIdMult = StatsSystem.AddModifier(_owner.ID, source.ID, testStat, modifierValueMult, StatModifierType.Multiplicative);
+            StatsSystem.AddPermanentModifier(source.ID, testStat, permanentValue, StatModifierType.Additive);
+            StatsSystem.SetDepletedValue(source.ID, testStat, depletedValue);
+
+            // Act
+            StatsSystem.CopyStats(source.ID, target.ID);
+
+            // Assert
+            
+            Assert.That(StatsSystem.GetStatValue(target.ID, testStat), Is.EqualTo(expectedValue));
+            Assert.That(StatsSystem.GetStatDepletedValue(target.ID, testStat), Is.EqualTo(depletedValue));
+
+            // Modifiers should exist and be owned by the same owner
+            var targetModifiers = StatsSystem.GetModifiers(_owner.ID, target.ID);
+            List<StatModId> statModIds = new List<StatModId>(targetModifiers);
+
+            Assert.That(statModIds.Count(), Is.EqualTo(2));
+
+            foreach (StatModId statModId in statModIds)
+                StatsSystem.RemoveModifier(statModId);
+
+            Fix newExpectedValue = baseValue + permanentValue;
+            Assert.That(StatsSystem.GetStatValue(target.ID, testStat), Is.EqualTo(newExpectedValue));
+            
+
+            // Cleanup
+            source.Destroy();
+            target.Destroy();
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void CopyStats_MultipleModifierTypes_CopiesAllTypesCorrectly()
+        {
+            // Arrange
+            var source = new EntityA();
+            var target = new EntityB();
+            var owner2 = new EntityA();
+
+            Fix baseValue = 10;
+            Fix additiveMod = 2;
+            Fix percentageMod = Fix.Ratio(1, 2); // 50%
+            Fix multiplicativeMod = 3;
+            Fix postAdditiveMod = 1;
+
+            StatsSystem.SetBaseValue(source.ID, testStat, baseValue);
+            StatsSystem.AddModifier(_owner.ID, source.ID, testStat, additiveMod, StatModifierType.Additive);
+            StatsSystem.AddModifier(owner2.ID, source.ID, testStat, percentageMod, StatModifierType.Percentage);
+            StatsSystem.AddModifier(_owner.ID, source.ID, testStat, multiplicativeMod, StatModifierType.Multiplicative);
+            StatsSystem.AddModifier(owner2.ID, source.ID, testStat, postAdditiveMod, StatModifierType.AdditivePostMultiplicative);
+
+            // Act
+            StatsSystem.CopyStats(source.ID, target.ID);
+
+            // Assert
+            Fix expectedValue = ((baseValue + additiveMod) * ((Fix)1 + percentageMod) * multiplicativeMod) + postAdditiveMod;
+            Assert.That(StatsSystem.GetStatValue(target.ID, testStat), Is.EqualTo(expectedValue));
+
+            // Check that modifiers from both owners were copied
+            var owner1Modifiers = StatsSystem.GetModifiers(_owner.ID, target.ID);
+            var owner2Modifiers = StatsSystem.GetModifiers(owner2.ID, target.ID);
+            Assert.That(owner1Modifiers.Count(), Is.EqualTo(2)); // additive + multiplicative
+            Assert.That(owner2Modifiers.Count(), Is.EqualTo(2)); // percentage + postAdditive
+
+            // Cleanup
+            source.Destroy();
+            target.Destroy();
+            owner2.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void CopyStats_MultipleStats_CopiesAllStats()
+        {
+            // Arrange
+            var source = new EntityA();
+            var target = new EntityB();
+
+            Fix baseValue1 = 10;
+            Fix baseValue2 = 20;
+            Fix modifier1 = 3;
+            Fix modifier2 = 5;
+
+            StatsSystem.SetBaseValue(source.ID, testStat, baseValue1);
+            StatsSystem.SetBaseValue(source.ID, overflowTestStat, baseValue2);
+            StatsSystem.AddModifier(_owner.ID, source.ID, testStat, modifier1, StatModifierType.Additive);
+            StatsSystem.AddModifier(_owner.ID, source.ID, overflowTestStat, modifier2, StatModifierType.Additive);
+
+            // Act
+            StatsSystem.CopyStats(source.ID, target.ID);
+
+            // Assert
+            Assert.That(StatsSystem.GetStatValue(target.ID, testStat), Is.EqualTo(baseValue1 + modifier1));
+            Assert.That(StatsSystem.GetStatValue(target.ID, overflowTestStat), Is.EqualTo(baseValue2 + modifier2));
+
+            // Cleanup
+            source.Destroy();
+            target.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void CopyStats_WithPermanentModifiers_CopiesPermanentModifiers()
+        {
+            // Arrange
+            var source = new EntityA();
+            var target = new EntityB();
+
+            Fix baseValue = 10;
+            Fix permanentAdditive = 5;
+            Fix permanentMultiplicative = 2;
+            Fix permanentPercentage = Fix.Ratio(1, 4); // 25%
+
+            StatsSystem.SetBaseValue(source.ID, testStat, baseValue);
+            StatsSystem.AddPermanentModifier(source.ID, testStat, permanentAdditive, StatModifierType.Additive);
+            StatsSystem.AddPermanentModifier(source.ID, testStat, permanentMultiplicative, StatModifierType.Multiplicative);
+            StatsSystem.AddPermanentModifier(source.ID, testStat, permanentPercentage, StatModifierType.Percentage);
+
+            // Act
+            StatsSystem.CopyStats(source.ID, target.ID);
+
+            // Assert
+            Fix expectedValue = (baseValue + permanentAdditive) * ((Fix)1 + permanentPercentage) * permanentMultiplicative;
+            Assert.That(StatsSystem.GetStatValue(target.ID, testStat), Is.EqualTo(expectedValue));
+
+            // Cleanup
+            source.Destroy();
+            target.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void CopyStats_EmptySource_NoEffectOnTarget()
+        {
+            // Arrange
+            var source = new EntityA();
+            var target = new EntityB();
+
+            Fix targetBaseValue = 15;
+            StatsSystem.SetBaseValue(target.ID, testStat, targetBaseValue);
+
+            // Act
+            StatsSystem.CopyStats(source.ID, target.ID);
+
+            // Assert
+            Assert.That(StatsSystem.GetStatValue(target.ID, testStat), Is.EqualTo(targetBaseValue));
+
+            // Cleanup
+            source.Destroy();
+            target.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void CopyStats_NonExistentSource_NoEffectOnTarget()
+        {
+            // Arrange
+            var target = new EntityB();
+            EntId nonExistentSource = new EntId(999);
+
+            Fix targetBaseValue = 15;
+            StatsSystem.SetBaseValue(target.ID, testStat, targetBaseValue);
+
+            // Act & Assert
+            Assert.DoesNotThrow(() => StatsSystem.CopyStats(nonExistentSource, target.ID));
+            Assert.That(StatsSystem.GetStatValue(target.ID, testStat), Is.EqualTo(targetBaseValue));
+
+            // Cleanup
+            target.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void CopyStats_WithDepletedValues_CopiesDepletedValues()
+        {
+            // Arrange
+            var source = new EntityA();
+            var target = new EntityB();
+
+            Fix baseValue = 10;
+            Fix depletedValue = 3;
+            Fix modifierValue = 2;
+
+            StatsSystem.SetBaseValue(source.ID, testStat, baseValue);
+            StatsSystem.SetDepletedValue(source.ID, testStat, depletedValue);
+            StatsSystem.AddModifier(_owner.ID, source.ID, testStat, modifierValue, StatModifierType.Additive);
+
+            // Act
+            StatsSystem.CopyStats(source.ID, target.ID);
+
+            // Assert
+            Fix expectedTotalValue = baseValue + modifierValue;
+            Fix expectedDepletedValue = depletedValue + modifierValue;
+            Assert.That(StatsSystem.GetStatValue(target.ID, testStat), Is.EqualTo(expectedTotalValue));
+            Assert.That(StatsSystem.GetStatDepletedValue(target.ID, testStat), Is.EqualTo(expectedDepletedValue));
+
+            // Cleanup
+            source.Destroy();
+            target.Destroy();
+            ExecuteFrame(1);
+        }
+
+        [Test]
+        [Category("Stats")]
+        public void CopyStats_OverwritesExistingTargetStats()
+        {
+            // Arrange
+            var source = new EntityA();
+            var target = new EntityB();
+
+            Fix sourceBaseValue = 10;
+            Fix targetBaseValue = 20;
+            Fix modifierValue = 3;
+
+            StatsSystem.SetBaseValue(source.ID, testStat, sourceBaseValue);
+            StatsSystem.SetBaseValue(target.ID, testStat, targetBaseValue);
+            StatsSystem.AddModifier(_owner.ID, source.ID, testStat, modifierValue, StatModifierType.Additive);
+
+            // Act
+            StatsSystem.CopyStats(source.ID, target.ID);
+
+            // Assert
+            Fix expectedValue = sourceBaseValue + modifierValue;
+            Assert.That(StatsSystem.GetStatValue(target.ID, testStat), Is.EqualTo(expectedValue));
+
+            // Cleanup
+            source.Destroy();
+            target.Destroy();
+            ExecuteFrame(1);
+        }
+
         private class EntityA : Entity{ }
 
         private class EntityB : Entity { }

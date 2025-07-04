@@ -7,21 +7,6 @@
     <list default="true" id="dd9a6987-ecb6-4368-83cf-6cf813aeb878" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Core" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/ComponentSystems/AliveComponentSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/ComponentSystems/AliveComponentSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Components/IAlive.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Components/IAlive.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityEventsQueue/EntityEventQueueTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityEventsQueue/EntityEventQueueTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TimerSystemTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TimerSystemTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/DataDrivenTests/DataDrivenComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Model/DataDrivenTests/DataDrivenComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/EnemyComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Model/EnemyComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/Testing_core_EnemyLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Model/Testing_core_EnemyLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Model/Testing_core_GameModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Model/Testing_core_GameModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/DD_Testing_UpdateComponentDatasSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/DD_Testing_UpdateComponentDatasSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/PrioritySystemTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Systems Test/EntitySystems/PrioritySystemTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/TestingCore_GameBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/TestingCore_GameBootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/TestingCore_RuntimeProjectBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/TestingCore_RuntimeProjectBootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/UI Test/TestUI_Bootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/UI Test/TestUI_Bootstrap.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +17,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -216,6 +204,9 @@
       <workItem from="1748258077570" duration="3027000" />
       <workItem from="1748863946601" duration="20131000" />
       <workItem from="1749085015103" duration="2850000" />
+      <workItem from="1749088325253" duration="4431000" />
+      <workItem from="1750075309334" duration="8819000" />
+      <workItem from="1751379538565" duration="3806000" />
     </task>
     <servers />
   </component>
