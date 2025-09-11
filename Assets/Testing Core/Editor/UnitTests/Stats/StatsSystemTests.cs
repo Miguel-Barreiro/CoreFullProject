@@ -1579,6 +1579,7 @@ namespace Testing_Core.Editor.UnitTests.Stats
         [Category("PermanentModifiers")]
         public void AddPermanentModifier_EntityDestroyed_ModifiersRemain()
         {
+            
             // Arrange
             Fix permanentModifier = 3;
             Fix regularModifier = 2;

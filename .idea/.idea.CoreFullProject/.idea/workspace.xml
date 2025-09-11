@@ -7,6 +7,8 @@
     <list default="true" id="dd9a6987-ecb6-4368-83cf-6cf813aeb878" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CoreFullProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Core" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Stats/StatsSystemTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +30,51 @@
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/47/1dc194cc/Is.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/85/68f5f781/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10b6135e63434fdba4fc6c109928ab3b50800/a8/a3803e40/Does.cs" root0="SKIP_HIGHLIGHTING" />
@@ -36,6 +83,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2d509b23e716493bb6ab7d13cc52e0dc21000/29/8c92e1d1/CoreSystemsInstaller.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2d8783c7af0442318483a199a473c55b175e00/f2/ed7db53a/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/2f/14584f6b/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/b0/8c5aaaad/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5e6a77f3fd8e42f3ba60c3ccc8a7b8b2304000/56/d375e603/OnStateUpdateAttributeStateUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9049f45778604ae18ec20868d537cc5c10fc00/2b/824f984f/HashSet`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c0b7b90d34a54066a7234dad6925511646ac00/0e/ed91bd9c/Environment.cs" root0="SKIP_HIGHLIGHTING" />
@@ -49,7 +97,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f547e88ca61ed0dceca1eabca811c17384657179b4394e074d325274e3fe2f1/System.ComponentModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/Data/Stats/DataConfigConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/Data/Stats/StatTable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Model/ModelSystems/EntityHierarchyModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityEventsQueue/EntityEventQueueTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityHierarchySystem/EntityHierarchySystemTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Model/TestTypes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/Timer/TimerSystemTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Tests/Editor/SystemsManagerInspector.cs" root0="SKIP_HIGHLIGHTING" />
@@ -206,7 +256,13 @@
       <workItem from="1749085015103" duration="2850000" />
       <workItem from="1749088325253" duration="4431000" />
       <workItem from="1750075309334" duration="8819000" />
-      <workItem from="1751379538565" duration="3806000" />
+      <workItem from="1751379538565" duration="8317000" />
+      <workItem from="1752497530769" duration="2232000" />
+      <workItem from="1753362627230" duration="1644000" />
+      <workItem from="1753880442432" duration="1227000" />
+      <workItem from="1754483405829" duration="23771000" />
+      <workItem from="1755085946520" duration="1447000" />
+      <workItem from="1757507477135" duration="3889000" />
     </task>
     <servers />
   </component>
@@ -228,17 +284,69 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Initialization/CoreSystemsInstaller.cs</url>
-          <line>61</line>
-          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Initialization\CoreSystemsInstaller.cs" containingFunctionPresentation="Method 'BuildDataComponentContainers'">
+          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs</url>
+          <line>154</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\SystemsController.cs" containingFunctionPresentation="Local function 'ExecuteEventsAndUpdates'">
             <startOffsets>
-              <option value="2154" />
+              <option value="5061" />
             </startOffsets>
             <endOffsets>
-              <option value="2206" />
+              <option value="5085" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/EntityHierarchySystem.cs</url>
+          <line>67</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\EntityHierarchySystem.cs" containingFunctionPresentation="Method 'OnDestroyEntity'">
+            <startOffsets>
+              <option value="1924" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2017" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Testing Core/Editor/UnitTests/EntityHierarchySystem/EntityHierarchySystemTests.cs</url>
+          <line>172</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Testing Core\Editor\UnitTests\EntityHierarchySystem\EntityHierarchySystemTests.cs" containingFunctionPresentation="Method 'OnDestroyEntity_ShouldDestroyAllChildren'">
+            <startOffsets>
+              <option value="5677" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5738" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs</url>
+          <line>150</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\SystemsController.cs" containingFunctionPresentation="Local function 'ExecuteEventsAndUpdates'">
+            <startOffsets>
+              <option value="4884" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4901" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Core/Runtime/Core/Systems/SystemsController.cs</url>
+          <line>291</line>
+          <properties documentPath="C:\Users\senho\Documents\projects\CoreFullProject\Assets\Core\Runtime\Core\Systems\SystemsController.cs" containingFunctionPresentation="Local function 'GroupNewAndDestroyEntitiesByComponent'">
+            <startOffsets>
+              <option value="12380" />
+            </startOffsets>
+            <endOffsets>
+              <option value="12436" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
