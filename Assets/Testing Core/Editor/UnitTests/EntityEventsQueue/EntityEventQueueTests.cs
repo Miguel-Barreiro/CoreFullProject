@@ -141,6 +141,66 @@ namespace Testing_Core.Editor.UnitTests.EntityEventsQueue
         }
 
         [Test]
+        public void MultipleListeners_SameEntity_AllFired()
+        {
+            // Arrange
+            var entity = new TestEntity();
+            int callbackCounter = 0;
+
+            eventQueue.AddEntityEventListener(entity.ID, _ => callbackCounter++);
+            eventQueue.AddEntityEventListener(entity.ID, _ => callbackCounter++);
+            eventQueue.AddEntityEventListener(entity.ID, _ => callbackCounter++);
+
+            // Act
+            eventQueue.Execute(entity.ID);
+            ExecuteFrame(0.1f);
+
+            // Assert
+            Assert.That(callbackCounter, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void Execute_MultipleEntities_EachTriggersOnlyOwnListeners()
+        {
+            // Arrange
+            var entity1 = new TestEntity();
+            var entity2 = new TestEntity();
+            int entity1Count = 0;
+            int entity2Count = 0;
+
+            eventQueue.AddEntityEventListener(entity1.ID, _ => entity1Count++);
+            eventQueue.AddEntityEventListener(entity2.ID, _ => entity2Count++);
+
+            // Act
+            eventQueue.Execute(entity1.ID);
+            eventQueue.Execute(entity2.ID);
+            ExecuteFrame(0.1f);
+
+            // Assert
+            Assert.That(entity1Count, Is.EqualTo(1));
+            Assert.That(entity2Count, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void RemoveEntityEventListener_ShouldNotFireCallback()
+        {
+            // Arrange
+            var entity = new TestEntity();
+            int callbackCounter = 0;
+            IEntityEventQueue<TestEntityEvent>.EntityEventListener listener = _ => callbackCounter++;
+
+            eventQueue.AddEntityEventListener(entity.ID, listener);
+            eventQueue.RemoveEntityEventListener(entity.ID, listener);
+
+            // Act
+            eventQueue.Execute(entity.ID);
+            ExecuteFrame(0.1f);
+
+            // Assert
+            Assert.That(callbackCounter, Is.EqualTo(0));
+        }
+
+        [Test]
         public void Execute_ShouldTriggerAllEntitiesCallbackForAnyEntity()
         {
             // Arrange

@@ -15,7 +15,21 @@ MonoBehaviour:
   shownTypes:
     serializedCollection: []
   hiddenTypes:
-    serializedCollection: []
+    serializedCollection:
+    - AndroidPlayerBuildProgram.Data.ABITools, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidManifestConfiguration, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidPlayerBuildConfiguration, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidPlayerBuildProgramOutput, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidProjectConfigurationAnalytics, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidProjectFileArgs, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidSharedLibraryConfiguration, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidSymbol, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidUnityDependencyInfo, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidUnityPackageInfo, AndroidPlayerBuildProgram.Data
+    - AndroidPlayerBuildProgram.Data.AndroidUnityRegistryInfo, AndroidPlayerBuildProgram.Data
+    - AOT.MonoPInvokeCallbackAttribute, UnityEngine.CoreModule
+    - Consts, I18N.Other
+    - Assets.Plugins.PlasticSCM.Editor.Toolbar.UVCSToolbarBoostrap, Unity.CollabProxy.Editor
   addedIllegalTypes:
     serializedCollection: []
   typeSettings:

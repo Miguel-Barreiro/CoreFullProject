@@ -230,6 +230,155 @@ namespace Testing_Core.Editor.UnitTests.Timer
         }
         
         
+        [Test]
+        public void GetPercentageLeft_AtFullDuration_ReturnsOne()
+        {
+            // Arrange
+            string timerId = "testTimer";
+            float expirationMs = 1000;
+            TimerSystem.SetTimer(_entity.ID, timerId, expirationMs, false, false);
+
+            // Act
+            OperationResult<float> result = TimerSystem.GetPercentageLeft(_entity.ID, timerId);
+
+            // Assert
+            Assert.IsTrue(result.IsSuccess);
+            Assert.AreEqual(1f, result.Result);
+        }
+
+        [Test]
+        public void GetPercentageLeft_AtHalfDuration_ReturnsHalf()
+        {
+            // Arrange
+            string timerId = "testTimer";
+            float expirationMs = 1000;
+            TimerSystem.SetTimer(_entity.ID, timerId, expirationMs, false, false);
+
+            // Act
+            ExecuteFrameMs(500);
+            OperationResult<float> result = TimerSystem.GetPercentageLeft(_entity.ID, timerId);
+
+            // Assert
+            Assert.IsTrue(result.IsSuccess);
+            Assert.AreEqual(0.5f, result.Result);
+        }
+
+        [Test]
+        public void GetPercentageLeft_AfterExpiry_ReturnsZero()
+        {
+            // Arrange
+            string timerId = "testTimer";
+            float expirationMs = 1000;
+            TimerSystem.SetTimer(_entity.ID, timerId, expirationMs, false, false);
+
+            // Act
+            ExecuteFrameMs(1500);
+            OperationResult<float> result = TimerSystem.GetPercentageLeft(_entity.ID, timerId);
+
+            // Assert
+            Assert.IsTrue(result.IsSuccess);
+            Assert.AreEqual(0f, result.Result);
+        }
+
+        [Test]
+        public void GetPercentageLeft_ReturnsFailure_WhenTimerDoesNotExist()
+        {
+            // Act
+            OperationResult<float> result = TimerSystem.GetPercentageLeft(_entity.ID, "nonExistentTimer");
+
+            // Assert
+            Assert.IsFalse(result.IsSuccess);
+        }
+
+        [Test]
+        public void MultipleTimers_SameEntity_BothWorkIndependently()
+        {
+            // Arrange
+            string timerId1 = "timer1";
+            string timerId2 = "timer2";
+            TimerSystem.SetTimer(_entity.ID, timerId1, 1000, false, false);
+            TimerSystem.SetTimer(_entity.ID, timerId2, 2000, false, false);
+
+            // Act
+            ExecuteFrameMs(500);
+
+            // Assert
+            OperationResult<float> result1 = TimerSystem.GetMillisecondsLeft(_entity.ID, timerId1);
+            OperationResult<float> result2 = TimerSystem.GetMillisecondsLeft(_entity.ID, timerId2);
+
+            Assert.IsTrue(result1.IsSuccess);
+            Assert.AreEqual(500f, result1.Result);
+
+            Assert.IsTrue(result2.IsSuccess);
+            Assert.AreEqual(1500f, result2.Result);
+        }
+
+        [Test]
+        public void SetTimer_OnExistingTimer_UpdatesExpiration()
+        {
+            // Arrange
+            string timerId = "testTimer";
+            TimerSystem.SetTimer(_entity.ID, timerId, 500, false, false);
+
+            // Act - overwrite with a longer duration
+            TimerSystem.SetTimer(_entity.ID, timerId, 2000, false, false);
+
+            // Assert
+            Assert.IsTrue(TimerSystem.HasTimer(_entity.ID, timerId));
+            OperationResult<float> result = TimerSystem.GetMillisecondsLeft(_entity.ID, timerId);
+            Assert.IsTrue(result.IsSuccess);
+            Assert.AreEqual(2000f, result.Result);
+        }
+
+        [Test]
+        public void HasTimer_ReturnsFalse_ForNonexistentEntity()
+        {
+            // Arrange
+            EntId nonExistentEntity = new EntId(9999);
+
+            // Act & Assert
+            Assert.IsFalse(TimerSystem.HasTimer(nonExistentEntity, "anyTimer"));
+        }
+
+        [Test]
+        public void MultipleTimers_SameEntity_RemoveOneDoesNotAffectOther()
+        {
+            // Arrange
+            string timerId1 = "timer1";
+            string timerId2 = "timer2";
+            TimerSystem.SetTimer(_entity.ID, timerId1, 1000, false, false);
+            TimerSystem.SetTimer(_entity.ID, timerId2, 2000, false, false);
+
+            // Act
+            TimerSystem.RemoveTimer(_entity.ID, timerId1);
+
+            // Assert
+            Assert.IsFalse(TimerSystem.HasTimer(_entity.ID, timerId1));
+            Assert.IsTrue(TimerSystem.HasTimer(_entity.ID, timerId2));
+        }
+
+        [Test]
+        public void MultipleTimers_SameEntity_OnlyExpiredOneFiredListener()
+        {
+            // Arrange
+            string timerId1 = "timer1";
+            string timerId2 = "timer2";
+            bool listener1Called = false;
+            bool listener2Called = false;
+
+            TimerSystem.SetTimer(_entity.ID, timerId1, 500, false, false);
+            TimerSystem.SetTimer(_entity.ID, timerId2, 2000, false, false);
+            TimerSystem.AddOnFinishListener(_entity.ID, timerId1, _ => listener1Called = true);
+            TimerSystem.AddOnFinishListener(_entity.ID, timerId2, _ => listener2Called = true);
+
+            // Act - advance past timer1 only
+            ExecuteFrameMs(600);
+
+            // Assert
+            Assert.IsTrue(listener1Called, "Timer1 should have fired");
+            Assert.IsFalse(listener2Called, "Timer2 should not have fired yet");
+        }
+
         private class MockEntity : Entity{ }
     }
 } 

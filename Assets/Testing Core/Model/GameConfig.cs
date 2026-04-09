@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Core.VSEngine;
+using UnityEngine;
+using XNode;
 
 namespace Testing_Core.Model
 {
@@ -8,6 +10,8 @@ namespace Testing_Core.Model
         public int PlayerHealth;
         
         public GameObject EnemyPrefab;
+        
+        public ActionGraph EnemyBehaviorGraph;
         
     }
 }

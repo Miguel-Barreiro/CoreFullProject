@@ -28,6 +28,11 @@ namespace Testing_Core.Model.DataDrivenTests
 		public EntId ID { get; set; }
 		public int Value;
 		public void Init() { Value = 0; }
+		public void Reset()
+		{
+			ID = EntId.Invalid;
+			Value = -1;
+		}
 	}
 	public interface TestComponentOwnerDD1 : Component<TestDD1ComponentData> { }
 
@@ -128,7 +133,13 @@ namespace Testing_Core.Model.DataDrivenTests
 				new PushBackArray<TestDD1ComponentData>(maxNumber)
 			};
 		}
-		
+
+		public void SetupInvalid()
+		{
+			Invalid.Init();
+
+		}
+
 		public uint Count => (uint) Math.Max(Components[0].Count,Mathf.Max(  Components[1].Count,  Components[2].Count));
 		public uint MaxCount => Components[0].MaxCount;
 

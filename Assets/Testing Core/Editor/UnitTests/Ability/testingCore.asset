@@ -1,0 +1,466 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8639947237586924692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97c2305beb8409f82e7847e4f2dbfe1, type: 3}
+  m_Name: Write Testing Event
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.TestNodes.WriteTestingEventNode
+  graph: {fileID: 11400000}
+  position: {x: -504, y: -136}
+  ports:
+    keys:
+    - Continue
+    - enter
+    - NewValue
+    - Value
+    values:
+    - _fieldName: Continue
+      _node: {fileID: -8639947237586924692}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: -3567113126954569696}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: -8639947237586924692}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Continue
+        node: {fileID: 7855879197622302333}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NewValue
+      _node: {fileID: -8639947237586924692}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: 3025889712387493035}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 1
+    - _fieldName: Value
+      _node: {fileID: -8639947237586924692}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 1
+  guid: 07294eb6d076ec2418df9864faf81228
+  fileId: -8639947237586924692
+  vsFieldPorts:
+  - isInput: 1
+    FieldName: Value
+  - isInput: 1
+    FieldName: NewValue
+  EventType:
+    TypeName: TestingEvent
+    AssemblyQualifiedName: Core.VSEngine.Events.TestingEvent, Core.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &-8604707728542358747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf127b6f3ca144b1956f43013076966e, type: 3}
+  m_Name: Multiple Branch Test
+  m_EditorClassIdentifier: Assembly-CSharp::Core.VSEngine.MultipleBranchTestNode
+  graph: {fileID: 11400000}
+  position: {x: 40, y: -104}
+  ports:
+    keys:
+    - Continue
+    - enter
+    - Continue 0
+    values:
+    - _fieldName: Continue
+      _node: {fileID: -8604707728542358747}
+      _typeQualifiedName: Core.VSEngine.Control[], Core.Runtime, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: -8604707728542358747}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Continue
+        node: {fileID: -3567113126954569696}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Continue 0
+      _node: {fileID: -8604707728542358747}
+      _typeQualifiedName: Core.VSEngine.Control[], Core.Runtime, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: -3999006376908294848}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  guid: 07294eb6d076ec2418df9864faf81228
+  fileId: -8604707728542358747
+  Continue: []
+--- !u!114 &-3999006376908294848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccedff37ab7663f49a230d92ea032b55, type: 3}
+  m_Name: Test Log
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.TestNodes.TestLogNode
+  graph: {fileID: 11400000}
+  position: {x: 344, y: -88}
+  ports:
+    keys:
+    - value
+    - valueString
+    - Continue
+    - enter
+    values:
+    - _fieldName: value
+      _node: {fileID: -3999006376908294848}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: valueString
+      _node: {fileID: -3999006376908294848}
+      _typeQualifiedName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Continue
+      _node: {fileID: -3999006376908294848}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: -3999006376908294848}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Continue 0
+        node: {fileID: -8604707728542358747}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 07294eb6d076ec2418df9864faf81228
+  fileId: -3999006376908294848
+  Pause: 1
+  Header: wow it is working
+  value:
+    _raw: 0
+  valueString: 
+--- !u!114 &-3567113126954569696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473981a8863fac443af4ad84c3cd7eac, type: 3}
+  m_Name: New
+  m_EditorClassIdentifier: Core.Runtime::NewNode
+  graph: {fileID: 11400000}
+  position: {x: -200, y: -312}
+  ports:
+    keys:
+    - In
+    - Out
+    - Continue
+    - enter
+    values:
+    - _fieldName: In
+      _node: {fileID: -3567113126954569696}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: 3025889712387493035}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Out
+      _node: {fileID: -3567113126954569696}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Continue
+      _node: {fileID: -3567113126954569696}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: -8604707728542358747}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enter
+      _node: {fileID: -3567113126954569696}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Continue
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: Continue
+        node: {fileID: -8639947237586924692}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 07294eb6d076ec2418df9864faf81228
+  fileId: -3567113126954569696
+  Header: 
+  In:
+    _raw: 0
+  Out:
+    _raw: 0
+--- !u!114 &-694081756995789832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44215c4f03dc4b8bab29c35c78f4720f, type: 3}
+  m_Name: On Testing Event
+  m_EditorClassIdentifier: Assembly-CSharp::Core.VSEngine.Events.OnTestingEventNode
+  graph: {fileID: 11400000}
+  position: {x: -632, y: -120}
+  ports:
+    keys:
+    - Continue
+    - Value
+    - NewValue
+    values:
+    - _fieldName: Continue
+      _node: {fileID: -694081756995789832}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: -3567113126954569696}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Value
+      _node: {fileID: -694081756995789832}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 1
+    - _fieldName: NewValue
+      _node: {fileID: -694081756995789832}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 1
+  guid: 07294eb6d076ec2418df9864faf81228
+  fileId: -694081756995789832
+  active: 1
+  vsFieldPorts:
+  - isInput: 0
+    origin: 0
+    FieldName: Value
+  - isInput: 0
+    origin: 0
+    FieldName: NewValue
+  EventType:
+    eventTypeName: 
+    TypeName: TestingEvent
+    AssemblyQualifiedName: Core.VSEngine.Events.TestingEvent, Core.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491003568a21afc4093dfa435921fc71, type: 3}
+  m_Name: testingCore
+  m_EditorClassIdentifier: Assembly-CSharp::Core.VSEngine.ActionGraph
+  nodes:
+  - {fileID: -8604707728542358747}
+  - {fileID: -3999006376908294848}
+  - {fileID: -3567113126954569696}
+  - {fileID: 3025889712387493035}
+  - {fileID: 7855879197622302333}
+  - {fileID: -8639947237586924692}
+  guid: 07294eb6d076ec2418df9864faf81228
+  fileId: 11400000
+--- !u!114 &3025889712387493035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c259f46318255545b8e25bf647a1837, type: 3}
+  m_Name: Fix
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.SharedNodes.ValueTypes.FixNode
+  graph: {fileID: 11400000}
+  position: {x: -840, y: -344}
+  ports:
+    keys:
+    - output
+    values:
+    - _fieldName: output
+      _node: {fileID: 3025889712387493035}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: In
+        node: {fileID: -3567113126954569696}
+        reroutePoints: []
+      - fieldName: NewValue
+        node: {fileID: -8639947237586924692}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 07294eb6d076ec2418df9864faf81228
+  fileId: 3025889712387493035
+  Value: 999
+  output:
+    _raw: 0
+--- !u!114 &7855879197622302333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821ef53b24147d94e8532c392272320e, type: 3}
+  m_Name: Entity Event Listen
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.EntityEventListenNode
+  graph: {fileID: 11400000}
+  position: {x: -1048, y: -168}
+  ports:
+    keys:
+    - Continue
+    - Value
+    - NewValue
+    values:
+    - _fieldName: Continue
+      _node: {fileID: 7855879197622302333}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enter
+        node: {fileID: -8639947237586924692}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Value
+      _node: {fileID: 7855879197622302333}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 1
+    - _fieldName: NewValue
+      _node: {fileID: 7855879197622302333}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 1
+  guid: 07294eb6d076ec2418df9864faf81228
+  fileId: 7855879197622302333
+  active: 1
+  selectedEventType:
+    TypeName: TestingEvent
+    AssemblyQualifiedName: Core.VSEngine.Events.TestingEvent, Core.Runtime, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  vsFieldPorts:
+  - isInput: 0
+    FieldName: Value
+  - isInput: 0
+    FieldName: NewValue
+  Timing: 2
+  ListenTarget: 1

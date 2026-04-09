@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHealth: 100
   EnemyPrefab: {fileID: 7560240325444001463, guid: 126a10ecb0ddea7469b53cad00f5399a, type: 3}
+  EnemyBehaviorGraph: {fileID: 11400000, guid: 07294eb6d076ec2418df9864faf81228, type: 2}

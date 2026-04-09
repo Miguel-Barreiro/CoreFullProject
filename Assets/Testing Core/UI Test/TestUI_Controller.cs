@@ -1,7 +1,7 @@
 using Core.Initialization;
 using Core.View.UI;
+using Sirenix.OdinInspector;
 using UnityEngine;
-using VInspector;
 using Zenject;
 
 namespace Testing_Core.UI_Test

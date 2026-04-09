@@ -5,6 +5,7 @@ using Testing_Core.ComponentSystems;
 using Testing_Core.EntitySystems;
 using Testing_Core.Model;
 using Testing_Core.Systems_Test;
+using Testing_Core.VSEngineTests;
 using UnityEngine;
 
 namespace Testing_Core
@@ -47,6 +48,7 @@ namespace Testing_Core
             BindInstance(startGameSystem);
             
             BindInstance(new Testing_core_EnemyLogic());
+            BindInstance(new Testing_core_VSEngine());
             
             BindInstance(GameConfig);
             
