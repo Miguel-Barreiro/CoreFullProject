@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"C:\\\\Users\\\\PC\\\\Documents\\\\Projects\\\\CoreUnity\\\\CoreFullProject\" -name \"build\" -o -name \"*.sh\" -o -name \"Makefile\" 2>/dev/null | head -10)",
+      "Bash(git -C \"C:\\\\Users\\\\PC\\\\Documents\\\\Projects\\\\CoreUnity\\\\CoreFullProject\" log --oneline -20)",
+      "Bash(grep -n \"interface ICacheOutputValues\\\\|interface IEntryNode\" \"C:\\\\Users\\\\PC\\\\Documents\\\\Projects\\\\CoreUnity\\\\CoreFullProject\"/Assets/Core/Runtime/VSEngine/Core/*.cs)",
+      "Bash(find /c/Users/PC/Documents/Projects/CoreUnity/CoreFullProject/Assets/Core/Runtime/VSEngine -type f -name \"*.cs\" | xargs grep -l \"EntityEventListenNode\\\\|IEntityVSEvent\\\\|EntityEvent\" 2>/dev/null)",
+      "Bash(find /c/Users/PC/Documents/Projects/CoreUnity/CoreFullProject/Assets/Core/Runtime/VSEngine -type f -name \"*.cs\" | xargs grep -l \"IVSExecutionControl\" | head -5)",
+      "Bash(find \"C:/Users/PC/Documents/Projects/CoreUnity/CoreFullProject\" -name \"*.cs\" | xargs grep -l \"CustomNodeEditor\\\\|NodeEditor\" 2>/dev/null | head -10)",
+      "Bash(find \"C:\\\\Users\\\\PC\\\\Documents\\\\Projects\\\\CoreUnity\\\\CoreFullProject\\\\Assets\\\\Testing Core\\\\Editor\\\\UnitTests\" -type f -name \"*.cs\" 2>/dev/null | head -20)",
+      "Bash(grep -r \"fieldPort.origin\" \"C:\\\\Users\\\\PC\\\\Documents\\\\Projects\\\\CoreUnity\\\\CoreFullProject\\\\Assets\\\\Core\" --include=\"*.cs\" 2>/dev/null | head -20)",
+      "Bash(grep -r \"NodeEditor\\\\|XNodeEditor\" C:UsersPCDocumentsProjectsCoreUnityCoreFullProjectAssets --include=*.cs)",
+      "Bash(grep -r XNode C:UsersPCDocumentsProjectsCoreUnityCoreFullProject --include=*.json --include=*.txt)",
+      "mcp__UnityMCP__read_console",
+      "Bash(xargs grep:*)",
+      "Bash(grep ^public class\\\\|^class:*)",
+      "Bash(grep \"class \" /c/Users/PC/Documents/Projects/CoreUnity/CoreFullProject/Assets/Core/Runtime/VSEngine/Nodes/Scripting/*.cs)",
+      "Bash(grep -v \"//\")",
+      "Bash(grep \"\\\\.cs$\")"
+    ]
+  }
+}
