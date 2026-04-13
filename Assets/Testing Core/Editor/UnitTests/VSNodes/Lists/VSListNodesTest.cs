@@ -1,39 +1,32 @@
-using System.Collections.Generic;
 using System.Linq;
 using Core.Editor;
 using Core.Model;
 using Core.Model.Data;
 using Core.Model.ModelSystems;
-using Core.Systems;
 using Core.Utils.CachedDataStructures;
 using Core.VSEngine;
 using Core.VSEngine.Nodes.TestNodes;
 using NUnit.Framework;
-using Testing_Core.Editor.UnitTests.AbilityTests;
 using UnityEngine;
 using Zenject;
 
-namespace Testing_Core.Editor.UnitTests.VSNodes.Math
+namespace Testing_Core.Editor.UnitTests.VSNodes.Lists
 {
-	public sealed class VSMathNodesTest : UnitTest
+	public sealed class VSListNodesTest : UnitTest
 	{
-		
-		[SerializeField] private ActionGraph  MathNodes;
-		
-		[Inject] private readonly IEntityHierarchySystem hierarchySystem = null!;
+		[SerializeField] private ActionGraph ListNodes;
+
 		[Inject] private readonly EntitiesContainer entitiesContainer = null!;
 		[Inject] private readonly VSEngineCore VSEngineCore = null!;
 
-		
 		protected override void InstallTestSystems(IUnitTestInstaller installer)
 		{
-			
 		}
+
 		protected override void ResetComponentContainers(DataContainersController dataController)
 		{
 		}
-		
-		
+
 		[TearDown]
 		public void TearDown()
 		{
@@ -46,22 +39,11 @@ namespace Testing_Core.Editor.UnitTests.VSNodes.Math
 		}
 
 		[Test]
-		public void BasicMathNodesTest()
+		public void ListNodesTest()
 		{
-			
-			// using CachedList<BaseTestAssertNode> assertNodes = ListCache<BaseTestAssertNode>.Get();
-			// VSBaseEngine.GetAssertNodes(actionGraph, assertNodes);
-			//
-			// foreach (BaseTestAssertNode assertNode in assertNodes)
-			// {
-			// 	Debug.Log($"Running assert node: {assertNode.name}");
-			// 	VSEngineCore.RunTestNode(assertNode);
-			// }
-
-			ActionGraph actionGraph = MathNodes; 
+			ActionGraph actionGraph = ListNodes;
 			ExecuteTestNodes(actionGraph, VSEngineCore);
-		}
 
-		
+		}
 	}
 }

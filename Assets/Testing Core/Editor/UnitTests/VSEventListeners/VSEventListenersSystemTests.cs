@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Core.Editor;
 using Core.Events;
@@ -37,6 +38,10 @@ namespace Testing_Core.Editor.UnitTests.VSEventListeners
     [TestFixture]
     public class VSEventListenersSystemTests : UnitTest
     {
+        
+        [Inject] private readonly EntitiesContainer entitiesContainer = null!;
+        
+        
         // ── Fake engine that records Run() calls ─────────────────────────────
         private sealed class FakeVSBaseEngine : VSBaseEngine
         {
@@ -107,7 +112,18 @@ namespace Testing_Core.Editor.UnitTests.VSEventListeners
             foreach (var node in createdNodes)
                 if (node != null) DestroyImmediate(node);
             createdNodes.Clear();
+            
+            
+            // Clean up any existing entities before each test
+            var allEntities = entitiesContainer.GetAllEntitiesByType<Entity>().ToList();
+            foreach (var entity in allEntities)
+                EntitiesContainer.DestroyEntity(entity.ID);
+
+            ExecuteFrame(0.1f);
+            EntitiesContainer.Reset();
         }
+        
+        
 
         // ── Node factories ────────────────────────────────────────────────────
         private EventListenNode MakeGlobalNode(VSEventTiming timing = VSEventTiming.Default)

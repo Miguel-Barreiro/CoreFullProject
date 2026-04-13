@@ -1,0 +1,359 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491003568a21afc4093dfa435921fc71, type: 3}
+  m_Name: ValueNodesAG
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.ActionGraph
+  nodes:
+  - {fileID: 3059918487254422978}
+  - {fileID: 2376007484260171180}
+  - {fileID: 2653951065773035549}
+  - {fileID: 3921379485618564687}
+  - {fileID: 992530048819445014}
+  - {fileID: 1265823571243081984}
+  - {fileID: 1355797382985902793}
+  guid: 806210970f356674eb1a4e73939dc6bd
+  fileId: 11400000
+  localVariables: []
+--- !u!114 &992530048819445014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc1902875214feca4358cad29401dfe, type: 3}
+  m_Name: Number_0
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.Nodes.NumberNode
+  graph: {fileID: 11400000}
+  position: {x: -24, y: 232}
+  ports:
+    keys:
+    - Value
+    values:
+    - _fieldName: Value
+      _node: {fileID: 992530048819445014}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: 1265823571243081984}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 806210970f356674eb1a4e73939dc6bd
+  fileId: 992530048819445014
+  Value:
+    _raw: 0
+  ValueFloat: 0
+--- !u!114 &1265823571243081984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871688f28f2e46d5995377cfaf4d7ea4, type: 3}
+  m_Name: NumberNode_Zero
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.Nodes.TestNodes.AssertNumberNode
+  graph: {fileID: 11400000}
+  position: {x: 312, y: 184}
+  ports:
+    keys:
+    - Input
+    - Continue
+    - Enter
+    values:
+    - _fieldName: Input
+      _node: {fileID: 1265823571243081984}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Value
+        node: {fileID: 992530048819445014}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Continue
+      _node: {fileID: 1265823571243081984}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Enter
+        node: {fileID: 3921379485618564687}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Enter
+      _node: {fileID: 1265823571243081984}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Continue
+        node: {fileID: 1355797382985902793}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 806210970f356674eb1a4e73939dc6bd
+  fileId: 1265823571243081984
+  RepeatNumber: 1
+  ValueFloat: 0
+  Input:
+    _raw: 0
+  ExpectEqual: 1
+--- !u!114 &1355797382985902793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffbfe2b32c3d435e952155acb8e5d709, type: 3}
+  m_Name: Test Start
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.Nodes.TestNodes.TestStartNode
+  graph: {fileID: 11400000}
+  position: {x: -120, y: 88}
+  ports:
+    keys:
+    - Continue
+    - Enter
+    values:
+    - _fieldName: Continue
+      _node: {fileID: 1355797382985902793}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Enter
+        node: {fileID: 1265823571243081984}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Enter
+      _node: {fileID: 1355797382985902793}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 806210970f356674eb1a4e73939dc6bd
+  fileId: 1355797382985902793
+  repeatNumber: 1
+--- !u!114 &2376007484260171180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871688f28f2e46d5995377cfaf4d7ea4, type: 3}
+  m_Name: NumberNode_ReturnsValue
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.Nodes.TestNodes.AssertNumberNode
+  graph: {fileID: 11400000}
+  position: {x: 296, y: 712}
+  ports:
+    keys:
+    - Input
+    - Continue
+    - Enter
+    values:
+    - _fieldName: Input
+      _node: {fileID: 2376007484260171180}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Value
+        node: {fileID: 3059918487254422978}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Continue
+      _node: {fileID: 2376007484260171180}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Enter
+      _node: {fileID: 2376007484260171180}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Continue
+        node: {fileID: 3921379485618564687}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 806210970f356674eb1a4e73939dc6bd
+  fileId: 2376007484260171180
+  RepeatNumber: 1
+  ValueFloat: 42
+  Input:
+    _raw: 0
+  ExpectEqual: 1
+--- !u!114 &2653951065773035549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc1902875214feca4358cad29401dfe, type: 3}
+  m_Name: Number_Neg5
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.Nodes.NumberNode
+  graph: {fileID: 11400000}
+  position: {x: 8, y: 488}
+  ports:
+    keys:
+    - Value
+    values:
+    - _fieldName: Value
+      _node: {fileID: 2653951065773035549}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: 3921379485618564687}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 806210970f356674eb1a4e73939dc6bd
+  fileId: 2653951065773035549
+  Value:
+    _raw: 0
+  ValueFloat: -5
+--- !u!114 &3059918487254422978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc1902875214feca4358cad29401dfe, type: 3}
+  m_Name: Number_42
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.Nodes.NumberNode
+  graph: {fileID: 11400000}
+  position: {x: 8, y: 712}
+  ports:
+    keys:
+    - Value
+    values:
+    - _fieldName: Value
+      _node: {fileID: 3059918487254422978}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: 2376007484260171180}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 806210970f356674eb1a4e73939dc6bd
+  fileId: 3059918487254422978
+  Value:
+    _raw: 0
+  ValueFloat: 42
+--- !u!114 &3921379485618564687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871688f28f2e46d5995377cfaf4d7ea4, type: 3}
+  m_Name: NumberNode_NegativeValue
+  m_EditorClassIdentifier: Core.Runtime::Core.VSEngine.Nodes.TestNodes.AssertNumberNode
+  graph: {fileID: 11400000}
+  position: {x: 296, y: 456}
+  ports:
+    keys:
+    - Input
+    - Continue
+    - Enter
+    values:
+    - _fieldName: Input
+      _node: {fileID: 3921379485618564687}
+      _typeQualifiedName: FixedPointy.Fix, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Value
+        node: {fileID: 2653951065773035549}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Continue
+      _node: {fileID: 3921379485618564687}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Enter
+        node: {fileID: 2376007484260171180}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Enter
+      _node: {fileID: 3921379485618564687}
+      _typeQualifiedName: Core.VSEngine.Control, Core.Runtime, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Continue
+        node: {fileID: 1265823571243081984}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  guid: 806210970f356674eb1a4e73939dc6bd
+  fileId: 3921379485618564687
+  RepeatNumber: 1
+  ValueFloat: -5
+  Input:
+    _raw: 0
+  ExpectEqual: 1

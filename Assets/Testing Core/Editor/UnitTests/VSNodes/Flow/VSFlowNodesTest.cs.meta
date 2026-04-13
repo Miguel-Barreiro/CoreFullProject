@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 3f6ef76e84eaccc48bd531113d22f199
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - FlowNodes: {fileID: 11400000, guid: b77886055d4fc064f8d0f129a6d60961, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
