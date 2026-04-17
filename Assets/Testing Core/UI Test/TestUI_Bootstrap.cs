@@ -51,6 +51,10 @@ namespace Testing_Core.UI_Test
 			BindInstance(TestUIController);
 		}
 
+#if DEBUG
+		protected override void AddDebugOptions() { }
+#endif		
+
 		public override void ResetComponentContainers(DataContainersController dataContainersController) {  }
 
 	}

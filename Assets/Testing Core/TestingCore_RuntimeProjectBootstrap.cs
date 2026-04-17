@@ -28,6 +28,11 @@ namespace Testing_Core
             // TimerSystem timerSystem = GetSystem<TimerSystem>();
             // timerSystem.SetGlobalTimerScalerStat(null);
         }
+        
+#if DEBUG
+        protected override void AddDebugOptions() {}
+#endif
+
 
         protected override void InstallSystems()
         {
