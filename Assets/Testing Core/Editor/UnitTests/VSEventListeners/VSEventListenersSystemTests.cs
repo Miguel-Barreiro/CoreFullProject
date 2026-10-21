@@ -29,9 +29,15 @@ namespace Testing_Core.Editor.UnitTests.VSEventListeners
         public override void Execute() { }
     }
 
-    internal sealed class VSListenerTestEntityEvent : EntityEvent<VSListenerTestEntityEvent> { }
+    internal sealed class VSListenerTestEntityEvent : EntityEvent<VSListenerTestEntityEvent>
+    {
+        public override void Execute() { }
+    }
 
-    internal sealed class VSListenerOtherEntityEvent : EntityEvent<VSListenerOtherEntityEvent> { }
+    internal sealed class VSListenerOtherEntityEvent : EntityEvent<VSListenerOtherEntityEvent>
+    {
+        public override void Execute() { }
+    }
 
     // ── Tests ─────────────────────────────────────────────────────────────────
 

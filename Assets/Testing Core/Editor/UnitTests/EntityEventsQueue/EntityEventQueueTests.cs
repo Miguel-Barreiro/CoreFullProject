@@ -7,7 +7,10 @@ using Zenject;
 
 namespace Testing_Core.Editor.UnitTests.EntityEventsQueue
 {
-    public class TestEntityEvent : EntityEvent<TestEntityEvent> { }
+    public class TestEntityEvent : EntityEvent<TestEntityEvent>
+    {
+        public override void Execute() { }
+    }
 
     public class TestEntity : Entity{}
 

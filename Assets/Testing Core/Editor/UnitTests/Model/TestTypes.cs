@@ -71,7 +71,13 @@ namespace Testing.Core.Editor.UnitTests.Model
     }
     
     
-    public class TestEntityEvent : EntityEvent<TestEntityEvent> { }
-    public class TestEntity2Event : EntityEvent<TestEntity2Event> { }
+    public class TestEntityEvent : EntityEvent<TestEntityEvent>
+    {
+        public override void Execute() { }
+    }
+    public class TestEntity2Event : EntityEvent<TestEntity2Event>
+    {
+        public override void Execute() { }
+    }
 
 } 
